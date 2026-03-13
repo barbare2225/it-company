@@ -39,7 +39,7 @@ class CompanyFunctions {
         }
     }
 
-    static Team teamDistribution(Company company, String name) {
+    public static Team teamDistribution(Company company, String name) {
         int j = 0;
         Team team = new Team(name);
         for (int i = 0; i < company.getEmployees().length; i++) {

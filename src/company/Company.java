@@ -2,7 +2,7 @@ package company;
 
 public class Company {
 
-    static private int numberOfCompanies = 0;
+    private static int numberOfCompanies = 0;
 
     // static field
     static {
