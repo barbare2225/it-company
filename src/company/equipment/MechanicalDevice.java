@@ -4,18 +4,18 @@ import superClasses.Equipment;
 
 public class MechanicalDevice extends Equipment {
 
-    private boolean isWorking;
+    private boolean working;
 
     public MechanicalDevice(String name, boolean working) {
         super(name, "mechanical");
-        isWorking = working;
+        this.working = working;
     }
 
     public boolean isWorking() {
-        return isWorking;
+        return working;
     }
 
     public void setWorking(boolean working) {
-        isWorking = working;
+        this.working = working;
     }
 }
