@@ -1,4 +1,14 @@
 import company.*;
+import company.employeeRoles.Developer;
+import company.employeeRoles.Tester;
+import company.equipment.ElectronicDevice;
+import company.equipment.MechanicalDevice;
+import company.partners.CompanyPartner;
+import company.partners.HumanPartner;
+import superClasses.Company;
+import superClasses.Employee;
+import superClasses.Equipment;
+import superClasses.Partner;
 
 import java.math.BigDecimal;
 
@@ -6,23 +16,23 @@ public class Main {
 
     static void main(String[] args) {
 
-        Company company = new Company("it-company");
+        ITCompany company = new ITCompany("it-company",2023);
 
         // employees
-        Employee mari = new Employee("Mari", "Developer");
-        Employee sam = new Employee("Sam", "Developer");
-        Employee samy = new Employee("Samy", "Developer");
-        Employee jack = new Employee("Samy", "Developer");
-        Employee nick = new Employee("Samy", "Developer");
-        Employee liza = new Employee("Samy", "Developer");
+        Employee Tester1 = new Tester("Mari");
+        Employee Tester2 = new Tester("Sam");
+        Employee Developer1 = new Developer("Samy",1);
+        Employee Developer2 = new Developer("Samy",3);
+        Employee Tester3 = new Tester("Samy");
+        Employee Developer3 = new Developer("Samy",4);
 
         // adding employees
-        company.addEmployee(mari);
-        company.addEmployee(sam);
-        company.addEmployee(samy);
-        company.addEmployee(jack);
-        company.addEmployee(nick);
-        company.addEmployee(liza);
+        company.addEmployee(Developer2);
+        company.addEmployee(Developer3);
+        company.addEmployee(Developer1);
+        company.addEmployee(Tester2);
+        company.addEmployee(Tester1);
+        company.addEmployee(Tester3);
 
         // addresses
         Address address = new Address("street of nowhere");
@@ -35,16 +45,16 @@ public class Main {
         company.addAddress(address3);
 
         // Equipment
-        Equipment equipment = new Equipment("phone", "electronic");
-        Equipment equipment2 = new Equipment("laptop", "electronic2");
+        Equipment equipment = new MechanicalDevice("phone", true);
+        Equipment equipment2 = new ElectronicDevice("laptop", 3);
 
         // adding equipment
         company.addEquipment(equipment);
         company.addEquipment(equipment2);
 
         // partner
-        Partner partner = new Partner("it-company2", "company");
-        Partner partner2 = new Partner("Nino", "person");
+        Partner partner = new CompanyPartner("slay-QUINS", 2025, "cosmetic-company");
+        Partner partner2 = new HumanPartner("Nino");
 
         // adding partner
         company.addPartner(partner);
@@ -70,20 +80,24 @@ public class Main {
         Customer customer = new Customer("Barbare");
 
         // booking service
-        Company.bookService(customer, company, "new my project");
+        ITCompany.bookService(customer, company, "new my project");
+        ITCompany.getResume(Tester1);
+        ITCompany.getResume(Tester2);
+        ITCompany.getResume(Developer1);
+        ITCompany.getResume(Developer2);
 
         // entertainment
-        Company.entertainmentPlanning(company, "party", "street of nowhere");
-        Company.entertainmentPlanning(company, "party", "street of nowhere");
-        Company.entertainmentPlanning(company, "party2", "street of nowhere");
+        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
+        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
+        ITCompany.entertainmentPlanning(company, "party2", "street of nowhere");
 
         // update project
-        Company.updateProject(customer.getProject(), "in-progress");
+        ITCompany.updateProject(customer.getProject(), "in-progress");
 
         // sum of taxes
-        Company.sumOfTaxes(company);
+        ITCompany.sumOfTaxes(company);
 
         // print how many company we have
-        System.out.println("We have " + Company.getNumberOfCompanies() + " company");
+        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company");
     }
 }

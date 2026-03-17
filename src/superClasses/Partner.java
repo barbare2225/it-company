@@ -1,4 +1,4 @@
-package company;
+package superClasses;
 
 public class Partner {
 
@@ -8,7 +8,6 @@ public class Partner {
     public Partner(String name, String type) {
         this.name = name;
         this.type = type;
-
     }
 
     // getters and setters
