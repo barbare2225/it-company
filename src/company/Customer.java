@@ -1,16 +1,18 @@
 package company;
 
-import person.Passport;
+import superClasses.Human;
 
-public class Customer {
+public class Customer extends Human {
 
-    private String name;
-    private Passport passport;
     private Project project;
 
     public Customer(String name) {
-        this.name = name;
-        passport = new Passport();
+        super(name);
+    }
+
+    @Override
+    public void resume() {
+        System.out.println("name is " + super.name + " I'm a customer");
     }
 
     // functions
@@ -19,22 +21,6 @@ public class Customer {
     }
 
     // getters and setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Passport getPassport() {
-        return passport;
-    }
-
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-    }
-
     public Project getProject() {
         return project;
     }

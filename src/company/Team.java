@@ -1,5 +1,7 @@
 package company;
 
+import superClasses.Employee;
+
 public class Team {
 
     private String name;

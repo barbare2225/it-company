@@ -1,6 +1,11 @@
 package company;
 
-public class Company {
+import superClasses.Company;
+import superClasses.Employee;
+import superClasses.Equipment;
+import superClasses.Partner;
+
+public class ITCompany extends Company {
 
     private static int numberOfCompanies = 0;
 
@@ -9,7 +14,6 @@ public class Company {
         System.out.println("Company Class Loaded");
     }
 
-    private String name;
     private Address[] addresses;
     private Employee[] employees;
     private Entertainment[] entertainments;
@@ -19,8 +23,8 @@ public class Company {
     private Project[] projects;
     private Tax[] taxes;
 
-    public Company(String name) {
-        this.name = name;
+    public ITCompany(String name, int year) {
+        super(name, year, "IT");
         projects = new Project[0];
         employees = new Employee[0];
         partners = new Partner[0];
@@ -32,33 +36,39 @@ public class Company {
         numberOfCompanies++;
     }
 
-    public Company() {
-    }
-
     // static getters and setters
     public static int getNumberOfCompanies() {
         return numberOfCompanies;
     }
 
     public static void setNumberOfCompanies(int numberOfCompanies) {
-        Company.numberOfCompanies = numberOfCompanies;
+        ITCompany.numberOfCompanies = numberOfCompanies;
     }
 
     // functions
     public static void updateProject(Project project, String status) {
-        CompanyFunctions.updateProject(project, status);
+        ITCompanyFunctions.updateProject(project, status);
     }
 
-    public static void sumOfTaxes(Company company) {
-        CompanyFunctions.sumOfTaxes(company);
+    public static void sumOfTaxes(ITCompany company) {
+        ITCompanyFunctions.sumOfTaxes(company);
     }
 
-    public static void entertainmentPlanning(Company company, String name, String location) {
-        CompanyFunctions.entertainmentPlanning(company, name, location);
+    public static void entertainmentPlanning(ITCompany company, String name, String location) {
+        ITCompanyFunctions.entertainmentPlanning(company, name, location);
     }
 
-    public static void bookService(Customer customer, Company company, String projectName) {
+    public static void bookService(Customer customer, ITCompany company, String projectName) {
         BookingService.bookService(customer, company, projectName);
+    }
+
+    public static void getResume(Employee employee) {
+        BookingService.employeeResume(employee);
+    }
+
+    @Override
+    public String getInfo() {
+        return super.getInfo() + " there's " + getNumberOfCompanies() + " companies";
     }
 
     // adding stuff

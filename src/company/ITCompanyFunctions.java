@@ -3,7 +3,7 @@ package company;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-class CompanyFunctions {
+class ITCompanyFunctions {
 
     public static void updateProject(Project project, String status) {
         if (Objects.equals(project.getStatus(), status)) {
@@ -14,7 +14,7 @@ class CompanyFunctions {
         }
     }
 
-    public static BigDecimal sumOfTaxes(Company company) {
+    public static BigDecimal sumOfTaxes(ITCompany company) {
         BigDecimal sum = new BigDecimal("0");
         for (int i = 0; i < company.getTaxes().length; i++) {
             sum = sum.add(company.getTaxes()[i].getPrice());
@@ -23,7 +23,7 @@ class CompanyFunctions {
         return sum;
     }
 
-    public static void entertainmentPlanning(Company company, String name, String location) {
+    public static void entertainmentPlanning(ITCompany company, String name, String location) {
         boolean alreadyPlanned = false;
         for (int i = 0; i < company.getEntertainments().length; i++) {
             if (Objects.equals(company.getEntertainments()[i].getName(), name) && Objects.equals(company.getEntertainments()[i].getLocation(), location)) {
@@ -39,7 +39,7 @@ class CompanyFunctions {
         }
     }
 
-    public static Team teamDistribution(Company company, String name) {
+    public static Team teamDistribution(ITCompany company, String name) {
         int j = 0;
         Team team = new Team(name);
         for (int i = 0; i < company.getEmployees().length; i++) {
