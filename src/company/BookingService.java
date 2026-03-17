@@ -17,6 +17,6 @@ public class BookingService {
     }
 
     public static void employeeResume(Employee employee) {
-        employee.resume();;
+        employee.resume();
     }
 }

@@ -36,11 +36,6 @@ public class ITCompany extends Company {
         numberOfCompanies++;
     }
 
-    @Override
-    public String getInfo() {
-        return super.getInfo()+" there's "+getNumberOfCompanies()+" companies";
-    }
-
     // static getters and setters
     public static int getNumberOfCompanies() {
         return numberOfCompanies;
@@ -67,8 +62,13 @@ public class ITCompany extends Company {
         BookingService.bookService(customer, company, projectName);
     }
 
-    public static void getResume(Employee employee){
+    public static void getResume(Employee employee) {
         BookingService.employeeResume(employee);
+    }
+
+    @Override
+    public String getInfo() {
+        return super.getInfo() + " there's " + getNumberOfCompanies() + " companies";
     }
 
     // adding stuff

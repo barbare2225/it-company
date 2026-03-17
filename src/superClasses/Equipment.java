@@ -13,7 +13,7 @@ public class Equipment {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Name: " + name + ", Type: " + type;
     }
 

@@ -4,7 +4,7 @@ import superClasses.Employee;
 
 public class Developer extends Employee {
 
-    private int succesfullProjects;
+    private final int succesfullProjects;
 
     public Developer(String name, int succesfullProjects) {
         super(name, "Developer");

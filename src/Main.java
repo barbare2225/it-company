@@ -5,7 +5,6 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
-import superClasses.Company;
 import superClasses.Employee;
 import superClasses.Equipment;
 import superClasses.Partner;
@@ -16,15 +15,15 @@ public class Main {
 
     static void main(String[] args) {
 
-        ITCompany company = new ITCompany("it-company",2023);
+        ITCompany company = new ITCompany("it-company", 2023);
 
         // employees
         Employee Tester1 = new Tester("Mari");
         Employee Tester2 = new Tester("Sam");
-        Employee Developer1 = new Developer("Samy",1);
-        Employee Developer2 = new Developer("Samy",3);
+        Employee Developer1 = new Developer("Samy", 1);
+        Employee Developer2 = new Developer("Samy", 3);
         Employee Tester3 = new Tester("Samy");
-        Employee Developer3 = new Developer("Samy",4);
+        Employee Developer3 = new Developer("Samy", 4);
 
         // adding employees
         company.addEmployee(Developer2);
