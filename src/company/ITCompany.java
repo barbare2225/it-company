@@ -1,9 +1,9 @@
 package company;
 
-import superClasses.Company;
-import superClasses.Employee;
 import superClasses.Equipment;
 import superClasses.Partner;
+import superClasses.company.Company;
+import superClasses.employee.Employee;
 
 public class ITCompany extends Company {
 
@@ -13,6 +13,8 @@ public class ITCompany extends Company {
     static {
         System.out.println("Company Class Loaded");
     }
+
+    BookingService bookingService = new BookingService();
 
     private Address[] addresses;
     private Employee[] employees;
@@ -64,6 +66,14 @@ public class ITCompany extends Company {
 
     public static void getResume(Employee employee) {
         BookingService.employeeResume(employee);
+    }
+
+    public void cancelBooking(Project project) {
+        bookingService.cancelBooking(project);
+    }
+
+    public void getBookingDetails(Project project) {
+        bookingService.getBookingDetails(project);
     }
 
     @Override

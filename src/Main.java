@@ -5,9 +5,9 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
-import superClasses.Employee;
 import superClasses.Equipment;
 import superClasses.Partner;
+import superClasses.employee.Employee;
 
 import java.math.BigDecimal;
 
@@ -34,9 +34,9 @@ public class Main {
         company.addEmployee(Tester3);
 
         // addresses
-        Address address = new Address("street of nowhere");
-        Address address2 = new Address("street of nowhere2");
-        Address address3 = new Address("street of nowhere3");
+        Address address = new Address("street of nowhere", "Tbilisi", "Georgia");
+        Address address2 = new Address("street of nowhere2", "Tbilisi", "Georgia");
+        Address address3 = new Address("street of nowhere3", "Tbilisi", "Georgia");
 
         // adding addresses
         company.addAddress(address);
@@ -98,5 +98,11 @@ public class Main {
 
         // print how many company we have
         System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company");
+
+        // booking info
+        company.getBookingDetails(customer.getProject());
+
+        // cancel booking
+        company.cancelBooking(customer.getProject());
     }
 }

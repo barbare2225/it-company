@@ -1,19 +1,89 @@
 package company;
 
-public class Address {
+import interfaces.IAddress;
 
-    private String name;
+public final class Address implements IAddress {
 
-    public Address(String name) {
-        this.name = name;
+    private static final int maxAddresses = 1000; // government limit
+
+    private static int totalAddresses = 0;
+
+    // static block
+    static {
+        System.out.println("=== Address System Loaded ===");
+        System.out.println("Government max limit: " + maxAddresses);
     }
 
-    // getters and setters
-    public String getName() {
-        return name;
+    private String street;
+    private String City;
+    private String country;
+
+    // regular block
+    {
+        if (totalAddresses >= maxAddresses) {
+            System.out.println("limit reached (overflow)");
+            totalAddresses++;
+        } else {
+            totalAddresses++;
+            System.out.println("New address registered. Total: " + totalAddresses);
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Address(String street, String city, String country) {
+        this.street = street;
+        this.City = city;
+        this.country = country;
+    }
+
+    public static int getRemaining() {
+        return maxAddresses - totalAddresses;
+    }
+
+    public static int getTotalAddresses() {
+        return totalAddresses;
+    }
+
+    public static void setTotalAddresses(int totalAddresses) {
+        Address.totalAddresses = totalAddresses;
+    }
+
+    @Override
+    public String mapLink() {
+        return "http:maps.com/" + this.street;
+    }
+
+    @Override
+    public void changeAddress(String street, String country, String city) {
+        this.street = street;
+        this.City = city;
+        this.country = country;
+    }
+
+    public final int getMaxAddress() {
+        return maxAddresses;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

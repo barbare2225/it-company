@@ -1,8 +1,10 @@
 package company;
 
+import interfaces.Solvable;
+
 import java.time.LocalDate;
 
-public class Problem {
+public class Problem implements Solvable {
 
     private String name;
     private LocalDate dateOfDiscovering;
@@ -12,6 +14,11 @@ public class Problem {
         this.name = name;
         this.dateOfDiscovering = LocalDate.now();
         this.location = location;
+    }
+
+    @Override
+    public void solve() {
+        System.out.println("Problem solved");
     }
 
     // getters and setters

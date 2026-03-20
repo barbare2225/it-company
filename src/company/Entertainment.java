@@ -1,6 +1,8 @@
 package company;
 
-public class Entertainment {
+import interfaces.Trackable;
+
+public class Entertainment implements Trackable {
 
     private String name;
     private String location;
@@ -8,6 +10,16 @@ public class Entertainment {
     Entertainment(String name, String location) {
         this.name = name;
         this.location = location;
+    }
+
+    @Override
+    public void cancel() {
+        System.out.println("Booking Cancelled");
+    }
+
+    @Override
+    public void getDetails() {
+        System.out.println("entertainment booking Details: name-" + name + " location-" + location);
     }
 
     // getters and setters

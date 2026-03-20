@@ -1,6 +1,6 @@
 package company;
 
-import superClasses.Employee;
+import superClasses.employee.Employee;
 
 public class BookingService {
 
@@ -18,5 +18,13 @@ public class BookingService {
 
     public static void employeeResume(Employee employee) {
         employee.resume();
+    }
+
+    public void cancelBooking(Project project) {
+        project.cancel();
+    }
+
+    public void getBookingDetails(Project project) {
+        project.getDetails();
     }
 }
