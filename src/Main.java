@@ -86,9 +86,9 @@ public class Main {
         ITCompany.getResume(Developer2);
 
         // entertainment
-        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
-        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
-        ITCompany.entertainmentPlanning(company, "party2", "street of nowhere");
+        ITCompany.entertainmentPlanning(company, "party", address);
+        ITCompany.entertainmentPlanning(company, "party", address2);
+        ITCompany.entertainmentPlanning(company, "party2", address3);
 
         // update project
         ITCompany.updateProject(customer.getProject(), "in-progress");
@@ -97,12 +97,15 @@ public class Main {
         ITCompany.sumOfTaxes(company);
 
         // print how many company we have
-        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company");
+        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company\n");
 
-        // booking info
+        // polymorphism with the interfaces examples
+        // project
         company.getBookingDetails(customer.getProject());
-
-        // cancel booking
         company.cancelBooking(customer.getProject());
+
+        // entertainment
+        company.getBookingDetails(company.getEntertainments()[0]);
+        company.cancelBooking(company.getEntertainments()[0]);
     }
 }

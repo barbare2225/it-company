@@ -18,7 +18,7 @@ public class Project implements Solvable, Trackable {
 
     @Override
     public void cancel() {
-        System.out.println(customer.getName() + " booking cancelled.");
+        System.out.println(customer.getName() + " cancelled project-" + team.getName());
     }
 
     @Override

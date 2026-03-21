@@ -23,16 +23,16 @@ class ITCompanyFunctions {
         return sum;
     }
 
-    public static void entertainmentPlanning(ITCompany company, String name, String location) {
+    public static void entertainmentPlanning(ITCompany company, String name, Address address) {
         boolean alreadyPlanned = false;
         for (int i = 0; i < company.getEntertainments().length; i++) {
-            if (Objects.equals(company.getEntertainments()[i].getName(), name) && Objects.equals(company.getEntertainments()[i].getLocation(), location)) {
+            if (Objects.equals(company.getEntertainments()[i].getName(), name)) {
                 alreadyPlanned = true;
                 break;
             }
         }
         if (!alreadyPlanned) {
-            company.addEntertainment(name, location);
+            company.addEntertainment(name, address);
             System.out.println(name + " - entertainment planned successfully");
         } else {
             System.out.println(name + " - entertainment already planned");

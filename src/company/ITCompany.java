@@ -1,5 +1,6 @@
 package company;
 
+import interfaces.Trackable;
 import superClasses.Equipment;
 import superClasses.Partner;
 import superClasses.company.Company;
@@ -56,8 +57,8 @@ public class ITCompany extends Company {
         ITCompanyFunctions.sumOfTaxes(company);
     }
 
-    public static void entertainmentPlanning(ITCompany company, String name, String location) {
-        ITCompanyFunctions.entertainmentPlanning(company, name, location);
+    public static void entertainmentPlanning(ITCompany company, String name, Address address) {
+        ITCompanyFunctions.entertainmentPlanning(company, name, address);
     }
 
     public static void bookService(Customer customer, ITCompany company, String projectName) {
@@ -68,12 +69,12 @@ public class ITCompany extends Company {
         BookingService.employeeResume(employee);
     }
 
-    public void cancelBooking(Project project) {
-        bookingService.cancelBooking(project);
+    public void cancelBooking(Trackable trackable) {
+        bookingService.cancelBooking(trackable);
     }
 
-    public void getBookingDetails(Project project) {
-        bookingService.getBookingDetails(project);
+    public void getBookingDetails(Trackable trackable) {
+        bookingService.getBookingDetails(trackable);
     }
 
     @Override
@@ -117,10 +118,10 @@ public class ITCompany extends Company {
         addresses = newAddresses;
     }
 
-    public void addEntertainment(String name, String location) {
+    public void addEntertainment(String name, Address address) {
         Entertainment[] newEntertainments = new Entertainment[entertainments.length + 1];
         System.arraycopy(entertainments, 0, newEntertainments, 0, entertainments.length);
-        newEntertainments[entertainments.length] = new Entertainment(name, location);
+        newEntertainments[entertainments.length] = new Entertainment(name, address);
         entertainments = newEntertainments;
     }
 

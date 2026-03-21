@@ -4,6 +4,6 @@ public interface IAddress {
 
     String mapLink();
 
-    void changeAddress(String a, String b, String c);
+    void changeAddress(String street, String country, String city);
 
 }

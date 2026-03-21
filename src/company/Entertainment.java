@@ -5,21 +5,21 @@ import interfaces.Trackable;
 public class Entertainment implements Trackable {
 
     private String name;
-    private String location;
+    private Address address;
 
-    Entertainment(String name, String location) {
+    Entertainment(String name, Address address) {
         this.name = name;
-        this.location = location;
+        this.address = address;
     }
 
     @Override
     public void cancel() {
-        System.out.println("Booking Cancelled");
+        System.out.println("Enterteinment-" + name + " got Cancelled");
     }
 
     @Override
     public void getDetails() {
-        System.out.println("entertainment booking Details: name-" + name + " location-" + location);
+        System.out.println("entertainment booking Details: name-" + name + " location-" + address.getCountry() + "," + address.getCity() + "," + address.getStreet());
     }
 
     // getters and setters
@@ -31,12 +31,12 @@ public class Entertainment implements Trackable {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public Address getLocation() {
+        return address;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(Address address) {
+        this.address = address;
     }
 
 }
