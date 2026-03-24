@@ -1,6 +1,9 @@
 package company;
 
-public class Project {
+import interfaces.Solvable;
+import interfaces.Trackable;
+
+public class Project implements Solvable, Trackable {
 
     private String name;
     private String status; // in_progress, in_queue, Done
@@ -11,6 +14,22 @@ public class Project {
         this.name = name;
         this.team = team;
         this.customer = customer;
+    }
+
+    @Override
+    public void cancel() {
+        System.out.println(customer.getName() + " cancelled project-" + team.getName());
+    }
+
+    @Override
+    public void getDetails() {
+        System.out.println(customer.getName() + " booked project:" + this.getName() +
+                " with team:" + this.getTeam().getName());
+    }
+
+    @Override
+    public void solve() {
+        System.out.println("Project can be solved");
     }
 
     public String getName() {

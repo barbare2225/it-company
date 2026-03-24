@@ -1,9 +1,10 @@
 package company;
 
-import superClasses.Company;
-import superClasses.Employee;
+import interfaces.Trackable;
 import superClasses.Equipment;
 import superClasses.Partner;
+import superClasses.company.Company;
+import superClasses.employee.Employee;
 
 public class ITCompany extends Company {
 
@@ -13,6 +14,8 @@ public class ITCompany extends Company {
     static {
         System.out.println("Company Class Loaded");
     }
+
+    BookingService bookingService = new BookingService();
 
     private Address[] addresses;
     private Employee[] employees;
@@ -54,8 +57,8 @@ public class ITCompany extends Company {
         ITCompanyFunctions.sumOfTaxes(company);
     }
 
-    public static void entertainmentPlanning(ITCompany company, String name, String location) {
-        ITCompanyFunctions.entertainmentPlanning(company, name, location);
+    public static void entertainmentPlanning(ITCompany company, String name, Address address) {
+        ITCompanyFunctions.entertainmentPlanning(company, name, address);
     }
 
     public static void bookService(Customer customer, ITCompany company, String projectName) {
@@ -64,6 +67,14 @@ public class ITCompany extends Company {
 
     public static void getResume(Employee employee) {
         BookingService.employeeResume(employee);
+    }
+
+    public void cancelBooking(Trackable trackable) {
+        bookingService.cancelBooking(trackable);
+    }
+
+    public void getBookingDetails(Trackable trackable) {
+        bookingService.getBookingDetails(trackable);
     }
 
     @Override
@@ -107,10 +118,10 @@ public class ITCompany extends Company {
         addresses = newAddresses;
     }
 
-    public void addEntertainment(String name, String location) {
+    public void addEntertainment(String name, Address address) {
         Entertainment[] newEntertainments = new Entertainment[entertainments.length + 1];
         System.arraycopy(entertainments, 0, newEntertainments, 0, entertainments.length);
-        newEntertainments[entertainments.length] = new Entertainment(name, location);
+        newEntertainments[entertainments.length] = new Entertainment(name, address);
         entertainments = newEntertainments;
     }
 

@@ -1,6 +1,6 @@
 package company.employeeRoles;
 
-import superClasses.Employee;
+import superClasses.employee.Employee;
 
 public class Tester extends Employee {
 

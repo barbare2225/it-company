@@ -5,9 +5,9 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
-import superClasses.Employee;
 import superClasses.Equipment;
 import superClasses.Partner;
+import superClasses.employee.Employee;
 
 import java.math.BigDecimal;
 
@@ -34,9 +34,9 @@ public class Main {
         company.addEmployee(Tester3);
 
         // addresses
-        Address address = new Address("street of nowhere");
-        Address address2 = new Address("street of nowhere2");
-        Address address3 = new Address("street of nowhere3");
+        Address address = new Address("street of nowhere", "Tbilisi", "Georgia");
+        Address address2 = new Address("street of nowhere2", "Tbilisi", "Georgia");
+        Address address3 = new Address("street of nowhere3", "Tbilisi", "Georgia");
 
         // adding addresses
         company.addAddress(address);
@@ -86,9 +86,9 @@ public class Main {
         ITCompany.getResume(Developer2);
 
         // entertainment
-        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
-        ITCompany.entertainmentPlanning(company, "party", "street of nowhere");
-        ITCompany.entertainmentPlanning(company, "party2", "street of nowhere");
+        ITCompany.entertainmentPlanning(company, "party", address);
+        ITCompany.entertainmentPlanning(company, "party", address2);
+        ITCompany.entertainmentPlanning(company, "party2", address3);
 
         // update project
         ITCompany.updateProject(customer.getProject(), "in-progress");
@@ -97,6 +97,15 @@ public class Main {
         ITCompany.sumOfTaxes(company);
 
         // print how many company we have
-        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company");
+        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company\n");
+
+        // polymorphism with the interfaces examples
+        // project
+        company.getBookingDetails(customer.getProject());
+        company.cancelBooking(customer.getProject());
+
+        // entertainment
+        company.getBookingDetails(company.getEntertainments()[0]);
+        company.cancelBooking(company.getEntertainments()[0]);
     }
 }

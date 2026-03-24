@@ -1,6 +1,7 @@
 package company;
 
-import superClasses.Employee;
+import interfaces.Trackable;
+import superClasses.employee.Employee;
 
 public class BookingService {
 
@@ -18,5 +19,13 @@ public class BookingService {
 
     public static void employeeResume(Employee employee) {
         employee.resume();
+    }
+
+    public void cancelBooking(Trackable trackable) {
+        trackable.cancel();
+    }
+
+    public void getBookingDetails(Trackable trackable) {
+        trackable.getDetails();
     }
 }
