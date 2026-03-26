@@ -1,5 +1,7 @@
 package company;
 
+import exceptions.DuplicateException;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -35,7 +37,8 @@ class ITCompanyFunctions {
             company.addEntertainment(name, address);
             System.out.println(name + " - entertainment planned successfully");
         } else {
-            System.out.println(name + " - entertainment already planned");
+//            System.out.println(name + " - entertainment already planned");
+            throw new DuplicateException("entertainment already planned");
         }
     }
 

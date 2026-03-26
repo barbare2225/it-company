@@ -5,6 +5,7 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
+import myResource.MyResource;
 import superClasses.Equipment;
 import superClasses.Partner;
 import superClasses.employee.Employee;
@@ -18,12 +19,12 @@ public class Main {
         ITCompany company = new ITCompany("it-company", 2023);
 
         // employees
-        Employee Tester1 = new Tester("Mari");
-        Employee Tester2 = new Tester("Sam");
-        Employee Developer1 = new Developer("Samy", 1);
-        Employee Developer2 = new Developer("Samy", 3);
-        Employee Tester3 = new Tester("Samy");
-        Employee Developer3 = new Developer("Samy", 4);
+        Employee Tester1 = new Tester("Mari", 19);
+        Employee Tester2 = new Tester("Sam", 20);
+        Employee Developer1 = new Developer("Samy", 21, 1);
+        Employee Developer2 = new Developer("Samy", 34, 3);
+        Employee Tester3 = new Tester("Samy", 40);
+        Employee Developer3 = new Developer("Samy", 43, 4);
 
         // adding employees
         company.addEmployee(Developer2);
@@ -76,19 +77,35 @@ public class Main {
         company.addTax(tax2);
 
         // customer
-        Customer customer = new Customer("Barbare");
+        Customer customer = new Customer("Barbare", 20);
 
-        // booking service
-        ITCompany.bookService(customer, company, "new my project");
+        // booking service + exception
+        try {
+            ITCompany.bookService(customer, company, "new my project");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         ITCompany.getResume(Tester1);
         ITCompany.getResume(Tester2);
         ITCompany.getResume(Developer1);
         ITCompany.getResume(Developer2);
 
-        // entertainment
-        ITCompany.entertainmentPlanning(company, "party", address);
-        ITCompany.entertainmentPlanning(company, "party", address2);
-        ITCompany.entertainmentPlanning(company, "party2", address3);
+        // entertainment + exceptions
+        try {
+            ITCompany.entertainmentPlanning(company, "party", address);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            ITCompany.entertainmentPlanning(company, "party", address2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            ITCompany.entertainmentPlanning(company, "party2", address3);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         // update project
         ITCompany.updateProject(customer.getProject(), "in-progress");
@@ -107,5 +124,14 @@ public class Main {
         // entertainment
         company.getBookingDetails(company.getEntertainments()[0]);
         company.cancelBooking(company.getEntertainments()[0]);
+
+        // AutoCloseable
+        try (MyResource myResource1 = new MyResource()) {
+            System.out.println("this is my resource");
+        } catch (Exception e) {
+            System.out.println("exc:-" + e.getMessage());
+        } finally {
+            System.out.println("\n resource closed");
+        }
     }
 }

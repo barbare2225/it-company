@@ -1,5 +1,6 @@
 package company;
 
+import exceptions.BookingException;
 import interfaces.Trackable;
 import superClasses.Equipment;
 import superClasses.Partner;
@@ -61,7 +62,7 @@ public class ITCompany extends Company {
         ITCompanyFunctions.entertainmentPlanning(company, name, address);
     }
 
-    public static void bookService(Customer customer, ITCompany company, String projectName) {
+    public static void bookService(Customer customer, ITCompany company, String projectName) throws BookingException {
         BookingService.bookService(customer, company, projectName);
     }
 

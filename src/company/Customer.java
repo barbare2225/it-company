@@ -6,13 +6,13 @@ public class Customer extends Human {
 
     private Project project;
 
-    public Customer(String name) {
-        super(name);
+    public Customer(String name, int age) {
+        super(name, age);
     }
 
     @Override
     public void resume() {
-        System.out.println("name is " + super.name + " I'm a customer");
+        System.out.println("name is " + super.getName() +" age-"+ super.getAge()+ " I'm a customer");
     }
 
     // functions

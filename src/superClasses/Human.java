@@ -1,15 +1,26 @@
 package superClasses;
 
 import Passport.Passport;
+import exceptions.EmptyNameException;
+import exceptions.InvalidAgeException;
 
 import java.util.Objects;
 
 public abstract class Human {
 
-    public String name;
+    private String name;
+    private int age;
     private Passport passport;
 
-    public Human(String name) {
+    public Human(String name, int age) {
+        if (name == null || name.isEmpty()) {
+            throw new EmptyNameException("Name cannot be empty");
+        }
+        if (age < 0) {
+            throw new InvalidAgeException("Age cannot be negative");
+        }
+
+        this.age = age;
         this.name = name;
         passport = new Passport();
     }
@@ -51,5 +62,13 @@ public abstract class Human {
 
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

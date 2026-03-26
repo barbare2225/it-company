@@ -1,11 +1,12 @@
 package company;
 
+import exceptions.BookingException;
 import interfaces.Trackable;
 import superClasses.employee.Employee;
 
 public class BookingService {
 
-    public static void bookService(Customer customer, ITCompany company, String projectName) {
+    public static void bookService(Customer customer, ITCompany company, String projectName) throws BookingException {
         Team team = ITCompanyFunctions.teamDistribution(company, projectName);
         if (team.getNumberOfEmployees() == 2) {
             Project project = new Project(projectName, customer, team);
@@ -14,6 +15,7 @@ public class BookingService {
             System.out.println(customer.getName() + " booked service for project - " + projectName);
         } else {
             System.out.println(customer.getName() + " couldn't book service for project - " + projectName);
+            throw new BookingException("Booking failed");
         }
     }
 
