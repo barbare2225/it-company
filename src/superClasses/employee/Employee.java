@@ -1,6 +1,7 @@
 package superClasses.employee;
 
 import company.Project;
+import exceptions.InvalidSalaryException;
 import interfaces.Payable;
 import interfaces.Workable;
 import superClasses.Human;
@@ -10,15 +11,19 @@ public class Employee extends Human implements Payable, Workable {
     private String role;
     private boolean isWorking;
 
-    public Employee(String name, String role) {
-        super(name);
+    public Employee(String name, int age, String role) {
+        super(name, age);
         this.role = role;
         isWorking = false;
     }
 
     @Override
     public void receiveSalary(double amount) {
-        System.out.println("Employee received a salary of " + amount);
+        if (amount < 2000) {
+            throw new InvalidSalaryException("Salary amount must be greater than 2000, not-" + amount);
+        } else {
+            System.out.println("Employee received a salary of " + amount);
+        }
     }
 
     @Override
@@ -38,7 +43,7 @@ public class Employee extends Human implements Payable, Workable {
 
     @Override
     public void resume() {
-        System.out.println("name is " + super.name + "Role is " + this.role);
+        System.out.println("name is " + super.getName() + " age is-" + super.getAge() + "Role is " + this.role);
     }
 
     // getters and setters

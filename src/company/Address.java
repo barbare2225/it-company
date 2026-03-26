@@ -59,7 +59,7 @@ public final class Address implements IAddress {
         this.country = country;
     }
 
-    public final int getMaxAddress() {
+    public int getMaxAddress() {
         return maxAddresses;
     }
 
