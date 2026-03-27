@@ -2,10 +2,10 @@ package company;
 
 import exceptions.BookingException;
 import interfaces.Trackable;
-import superClasses.Equipment;
-import superClasses.Partner;
-import superClasses.company.Company;
-import superClasses.employee.Employee;
+import superclasses.Equipment;
+import superclasses.Partner;
+import superclasses.company.Company;
+import superclasses.employee.Employee;
 
 public class ITCompany extends Company {
 

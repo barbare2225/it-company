@@ -1,6 +1,6 @@
 package company.partners;
 
-import superClasses.Partner;
+import superclasses.Partner;
 
 public class CompanyPartner extends Partner {
 

@@ -1,4 +1,4 @@
-package Passport;
+package passport;
 
 import java.time.LocalDate;
 

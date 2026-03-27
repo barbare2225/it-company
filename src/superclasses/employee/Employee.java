@@ -1,10 +1,10 @@
-package superClasses.employee;
+package superclasses.employee;
 
 import company.Project;
 import exceptions.InvalidSalaryException;
 import interfaces.Payable;
 import interfaces.Workable;
-import superClasses.Human;
+import superclasses.Human;
 
 public class Employee extends Human implements Payable, Workable {
 

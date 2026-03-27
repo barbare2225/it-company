@@ -1,6 +1,6 @@
 package company;
 
-import superClasses.employee.Employee;
+import superclasses.employee.Employee;
 
 public class Team {
 

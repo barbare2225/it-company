@@ -1,6 +1,6 @@
 package company.equipment;
 
-import superClasses.Equipment;
+import superclasses.Equipment;
 
 public class ElectronicDevice extends Equipment {
 

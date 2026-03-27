@@ -5,10 +5,10 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
-import myResource.MyResource;
-import superClasses.Equipment;
-import superClasses.Partner;
-import superClasses.employee.Employee;
+import myresource.MyResource;
+import superclasses.Equipment;
+import superclasses.Partner;
+import superclasses.employee.Employee;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package superClasses;
+package superclasses;
 
 public class Partner {
 
