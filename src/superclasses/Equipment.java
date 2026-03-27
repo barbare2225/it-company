@@ -1,4 +1,4 @@
-package superClasses;
+package superclasses;
 
 import java.util.Objects;
 

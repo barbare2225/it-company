@@ -1,6 +1,6 @@
 package company;
 
-import superClasses.Human;
+import superclasses.Human;
 
 public class Customer extends Human {
 

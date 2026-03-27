@@ -1,7 +1,7 @@
 package company.partners;
 
-import Passport.Passport;
-import superClasses.Partner;
+import passport.Passport;
+import superclasses.Partner;
 
 public class HumanPartner extends Partner {
 

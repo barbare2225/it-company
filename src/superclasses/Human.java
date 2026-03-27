@@ -1,6 +1,6 @@
-package superClasses;
+package superclasses;
 
-import Passport.Passport;
+import passport.Passport;
 import exceptions.EmptyNameException;
 import exceptions.InvalidAgeException;
 

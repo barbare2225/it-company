@@ -1,6 +1,4 @@
-package myResource;
-
-import exceptions.BookingException;
+package myresource;
 
 public class MyResource implements AutoCloseable {
 

@@ -2,7 +2,7 @@ package company;
 
 import exceptions.BookingException;
 import interfaces.Trackable;
-import superClasses.employee.Employee;
+import superclasses.employee.Employee;
 
 public class BookingService {
 

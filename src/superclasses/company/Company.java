@@ -1,4 +1,4 @@
-package superClasses.company;
+package superclasses.company;
 
 public class Company {
 
