@@ -12,7 +12,7 @@ public class Customer extends Human {
 
     @Override
     public void resume() {
-        System.out.println("name is " + super.getName() +" age-"+ super.getAge()+ " I'm a customer");
+        System.out.println("name is " + super.getName() + " age-" + super.getAge() + " I'm a customer");
     }
 
     // functions

@@ -1,8 +1,8 @@
 package superclasses;
 
-import passport.Passport;
 import exceptions.EmptyNameException;
 import exceptions.InvalidAgeException;
+import passport.Passport;
 
 import java.util.Objects;
 

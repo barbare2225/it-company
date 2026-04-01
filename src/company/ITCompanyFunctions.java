@@ -4,7 +4,6 @@ import exceptions.DuplicateException;
 import superclasses.employee.Employee;
 
 import java.math.BigDecimal;
-import java.util.Iterator;
 import java.util.Objects;
 
 class ITCompanyFunctions {
@@ -47,7 +46,7 @@ class ITCompanyFunctions {
     public static Team teamDistribution(ITCompany company, String name) {
         int j = 0;
         Team team = new Team(name);
-        for (Employee employee: company.getEmployees()) {
+        for (Employee employee : company.getEmployees()) {
             if (!employee.isWorking()) {
                 team.addEmployee(employee);
                 employee.setWorking(true);

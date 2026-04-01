@@ -2,9 +2,6 @@ package generics;
 
 import superclasses.employee.Employee;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Order<T> {
 
     private String name;

@@ -1,7 +1,6 @@
 package company;
 
 import exceptions.BookingException;
-import generics.Room;
 import interfaces.Trackable;
 import superclasses.Equipment;
 import superclasses.Partner;

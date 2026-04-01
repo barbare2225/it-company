@@ -21,7 +21,7 @@ public class Team {
         employees.add(employee);
     }
 
-   // getters and setters
+    // getters and setters
 
     public String getName() {
         return name;
