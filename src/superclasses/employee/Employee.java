@@ -6,6 +6,8 @@ import interfaces.Payable;
 import interfaces.Workable;
 import superclasses.Human;
 
+import java.util.Objects;
+
 public class Employee extends Human implements Payable, Workable {
 
     private String role;
@@ -15,6 +17,18 @@ public class Employee extends Human implements Payable, Workable {
         super(name, age);
         this.role = role;
         isWorking = false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee employee)) return false;
+        return Objects.equals(role, employee.role) && Objects.equals(isWorking, employee.isWorking);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(role, isWorking);
     }
 
     @Override

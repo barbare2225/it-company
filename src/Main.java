@@ -53,20 +53,24 @@ public class Main {
         company.getEquipment().add(equipment2);
 
         // partner
-        Partner partner = new CompanyPartner("slay-QUINS", 2025, "cosmetic-company");
-        Partner partner2 = new HumanPartner("Nino");
+        Partner partner = new CompanyPartner("slay-QUINS", 2025);
+        Partner partner2 = new HumanPartner("Nino", 20);
+        Partner partner4 = new HumanPartner("Nino", 20);
 
         // adding partner
         company.getPartners().add(partner);
         company.getPartners().add(partner2);
+        company.getPartners().add(partner4);
 
         // problems
         Problem problem = new Problem("error-on-line-2", "project-1");
         Problem problem2 = new Problem("doesnt-turn-on", "equipment-2");
+        Problem problem3 = new Problem("doesnt-turn-on", "equipment-2");
 
         // adding problems
         company.getProblems().put(problem, problem.getName());
         company.getProblems().put(problem2, problem2.getName());
+        company.getProblems().put(problem3, problem3.getName());
 
         // Taxes
         Tax tax = new Tax(new BigDecimal("222.3"), "equipment");
