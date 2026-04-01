@@ -10,7 +10,7 @@ public class BookingService {
         Team team = ITCompanyFunctions.teamDistribution(company, projectName);
         if (team.getEmployees().size() == 2) {
             Project project = new Project(projectName, customer, team);
-            company.addProject(project);
+            company.getProjects().add(project);
             customer.addProject(project);
             System.out.println(customer.getName() + " booked service for project - " + projectName);
         } else {

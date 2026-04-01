@@ -1,9 +1,11 @@
 package generics;
 
+import superclasses.employee.Employee;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Room<T> {
+public class Room<T extends Employee> {
 
     private String name;
     private List<T> stuff;

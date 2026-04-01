@@ -35,7 +35,7 @@ class ITCompanyFunctions {
             }
         }
         if (!alreadyPlanned) {
-            company.addEntertainment(name, address);
+            company.getEntertainments().add(new Entertainment(name, address));
             System.out.println(name + " - entertainment planned successfully");
         } else {
 //            System.out.println(name + " - entertainment already planned");

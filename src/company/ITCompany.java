@@ -1,6 +1,10 @@
 package company;
 
+import company.employeeRoles.Developer;
+import company.employeeRoles.Tester;
 import exceptions.BookingException;
+import generics.Order;
+import generics.Room;
 import interfaces.Trackable;
 import superclasses.Equipment;
 import superclasses.Partner;
@@ -28,6 +32,10 @@ public class ITCompany extends Company {
     private Map<Problem, String> problems;
     private List<Project> projects;
     private List<Tax> taxes;
+    private Room<Developer> devRoom;
+    private Room<Tester> testerRoom;
+    private Order<Entertainment> orderEntertainment;
+    private Order<Equipment> equipmentOrder;
 
     public ITCompany(String name, int year) {
         super(name, year, "IT");
@@ -39,6 +47,10 @@ public class ITCompany extends Company {
         entertainments = new ArrayList<>();
         equipment = new ArrayList<>();
         problems = new HashMap<>();
+        devRoom = new Room<>("developers room");
+        testerRoom = new Room<>("testers room");
+        orderEntertainment = new Order<>("orders Entertainment");
+        equipmentOrder = new Order<>("orders equipment");
         numberOfCompanies++;
     }
 
@@ -83,39 +95,6 @@ public class ITCompany extends Company {
     @Override
     public String getInfo() {
         return super.getInfo() + " there's " + getNumberOfCompanies() + " companies";
-    }
-
-    // adding stuff
-    public void addEmployee(Employee employee) {
-        employees.add(employee);
-    }
-
-    public void addProject(Project project) {
-        projects.add(project);
-    }
-
-    public void addTax(Tax tax) {
-        taxes.add(tax);
-    }
-
-    public void addPartner(Partner partner) {
-        partners.add(partner);
-    }
-
-    public void addAddress(Address address) {
-        addresses.add(address);
-    }
-
-    public void addEntertainment(String name, Address address) {
-        entertainments.add(new Entertainment(name, address));
-    }
-
-    public void addEquipment(Equipment equipment) {
-        this.equipment.add(equipment);
-    }
-
-    public void addProblems(Problem problem) {
-        problems.put(problem, problem.getName());
     }
 
     // setters and getters
@@ -189,5 +168,37 @@ public class ITCompany extends Company {
 
     public void setTaxes(List<Tax> taxes) {
         this.taxes = taxes;
+    }
+
+    public Room<Developer> getDevRoom() {
+        return devRoom;
+    }
+
+    public void setDevRoom(Room<Developer> devRoom) {
+        this.devRoom = devRoom;
+    }
+
+    public Room<Tester> getTesterRoom() {
+        return testerRoom;
+    }
+
+    public void setTesterRoom(Room<Tester> testerRoom) {
+        this.testerRoom = testerRoom;
+    }
+
+    public Order<Entertainment> getOrderEntertainment() {
+        return orderEntertainment;
+    }
+
+    public void setOrderEntertainment(Order<Entertainment> orderEntertainment) {
+        this.orderEntertainment = orderEntertainment;
+    }
+
+    public Order<Equipment> getEquipmentOrder() {
+        return equipmentOrder;
+    }
+
+    public void setEquipmentOrder(Order<Equipment> equipmentOrder) {
+        this.equipmentOrder = equipmentOrder;
     }
 }

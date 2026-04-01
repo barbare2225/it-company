@@ -5,12 +5,9 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
-import generics.Order;
-import generics.Room;
 import myresource.MyResource;
 import superclasses.Equipment;
 import superclasses.Partner;
-import superclasses.employee.Employee;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -30,12 +27,12 @@ public class Main {
         Developer developer3 = new Developer("Samy", 43, 4);
 
         // adding employees
-        company.addEmployee(developer2);
-        company.addEmployee(developer3);
-        company.addEmployee(developer1);
-        company.addEmployee(tester2);
-        company.addEmployee(tester1);
-        company.addEmployee(tester3);
+        company.getEmployees().add(developer2);
+        company.getEmployees().add(developer3);
+        company.getEmployees().add(developer1);
+        company.getEmployees().add(tester2);
+        company.getEmployees().add(tester1);
+        company.getEmployees().add(tester3);
 
         // addresses
         Address address = new Address("street of nowhere", "Tbilisi", "Georgia");
@@ -43,41 +40,41 @@ public class Main {
         Address address3 = new Address("street of nowhere3", "Tbilisi", "Georgia");
 
         // adding addresses
-        company.addAddress(address);
-        company.addAddress(address2);
-        company.addAddress(address3);
+        company.getAddresses().add(address);
+        company.getAddresses().add(address2);
+        company.getAddresses().add(address3);
 
         // Equipment
         Equipment equipment = new MechanicalDevice("phone", true);
         Equipment equipment2 = new ElectronicDevice("laptop", 3);
 
         // adding equipment
-        company.addEquipment(equipment);
-        company.addEquipment(equipment2);
+        company.getEquipment().add(equipment);
+        company.getEquipment().add(equipment2);
 
         // partner
         Partner partner = new CompanyPartner("slay-QUINS", 2025, "cosmetic-company");
         Partner partner2 = new HumanPartner("Nino");
 
         // adding partner
-        company.addPartner(partner);
-        company.addPartner(partner2);
+        company.getPartners().add(partner);
+        company.getPartners().add(partner2);
 
         // problems
         Problem problem = new Problem("error-on-line-2", "project-1");
         Problem problem2 = new Problem("doesnt-turn-on", "equipment-2");
 
         // adding problems
-        company.addProblems(problem);
-        company.addProblems(problem2);
+        company.getProblems().put(problem, problem.getName());
+        company.getProblems().put(problem2, problem2.getName());
 
         // Taxes
         Tax tax = new Tax(new BigDecimal("222.3"), "equipment");
         Tax tax2 = new Tax(new BigDecimal("3244.3"), "entertainment");
 
         // adding taxes
-        company.addTax(tax);
-        company.addTax(tax2);
+        company.getTaxes().add(tax);
+        company.getTaxes().add(tax2);
 
         // customer
         Customer customer = new Customer("Barbare", 20);
@@ -124,7 +121,7 @@ public class Main {
         company.getBookingDetails(customer.getProject());
         company.cancelBooking(customer.getProject());
 
-        // entertainment + first set element
+        // entertainment + first list element
         if (!company.getEntertainments().isEmpty()) {
             company.getBookingDetails(company.getEntertainments().get(0));
         }
@@ -161,19 +158,22 @@ public class Main {
         }
 
         // generics
-        // Entertainment Room
-        Room<Employee> funRoom = new Room<>("Entertainment Room");
-        funRoom.add(developer1);
-        funRoom.add(tester1);
+        // room
+        company.getDevRoom().add(developer1);
+        company.getDevRoom().add(developer2);
 
-        // old Equipment room
-        Room<Equipment> oldEquipmentRoom = new Room<>("old equipment Room");
-        oldEquipmentRoom.add(equipment2);
+        company.getTesterRoom().add(tester1);
+        company.getTesterRoom().add(tester2);
 
-        // Order for project
-        Order<Project> projectOrder = new Order<>(company.getProjects().get(0).getName(), company.getProjects().get(0), developer3);
+        // Order
+        company.getOrderEntertainment().addItem(new Entertainment("party party", address3));
+        if (!company.getEmployees().isEmpty()) {
+            company.getOrderEntertainment().addEmployeeAsignedTo(company.getEmployees().iterator().next());
+        }
 
-        // order new equipment
-        Order<Equipment> equipmentOrder = new Order<>("order new computer", equipment2, tester2);
+        company.getEquipmentOrder().addItem(equipment2);
+        if (!company.getEmployees().isEmpty()) {
+            company.getEquipmentOrder().addEmployeeAsignedTo(company.getEmployees().iterator().next());
+        }
     }
 }

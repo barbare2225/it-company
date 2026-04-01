@@ -2,16 +2,26 @@ package generics;
 
 import superclasses.employee.Employee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order<T> {
 
     private String name;
-    private T item;
+    private List<T> item;
     private Employee employeeAsignedTo;
 
-    public Order(String name, T item, Employee employeeAsignedTo) {
+    public Order(String name) {
+        item = new ArrayList<>();
         this.name = name;
-        this.item = item;
-        this.employeeAsignedTo = employeeAsignedTo;
+    }
+
+    public void addItem(T item) {
+        this.item.add(item);
+    }
+
+    public void addEmployeeAsignedTo(Employee employee) {
+        this.employeeAsignedTo = employee;
     }
 
     public String getName() {
@@ -22,11 +32,11 @@ public class Order<T> {
         this.name = name;
     }
 
-    public T getItem() {
+    public List<T> getItem() {
         return item;
     }
 
-    public void setItem(T item) {
+    public void setItem(List<T> item) {
         this.item = item;
     }
 
