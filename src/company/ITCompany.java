@@ -1,11 +1,14 @@
 package company;
 
 import exceptions.BookingException;
+import generics.Room;
 import interfaces.Trackable;
 import superclasses.Equipment;
 import superclasses.Partner;
 import superclasses.company.Company;
 import superclasses.employee.Employee;
+
+import java.util.*;
 
 public class ITCompany extends Company {
 
@@ -18,25 +21,25 @@ public class ITCompany extends Company {
 
     BookingService bookingService = new BookingService();
 
-    private Address[] addresses;
-    private Employee[] employees;
-    private Entertainment[] entertainments;
-    private Equipment[] equipment;
-    private Partner[] partners;
-    private Problem[] problems;
-    private Project[] projects;
-    private Tax[] taxes;
+    private List<Address> addresses;
+    private Set<Employee> employees;
+    private List<Entertainment> entertainments;
+    private List<Equipment> equipment;
+    private Set<Partner> partners;
+    private Map<Problem, String> problems;
+    private List<Project> projects;
+    private List<Tax> taxes;
 
     public ITCompany(String name, int year) {
         super(name, year, "IT");
-        projects = new Project[0];
-        employees = new Employee[0];
-        partners = new Partner[0];
-        addresses = new Address[0];
-        taxes = new Tax[0];
-        entertainments = new Entertainment[0];
-        equipment = new Equipment[0];
-        problems = new Problem[0];
+        projects = new ArrayList<>();
+        employees = new HashSet<>();
+        partners = new HashSet<>();
+        addresses = new ArrayList<>();
+        taxes = new ArrayList<>();
+        entertainments = new ArrayList<>();
+        equipment = new ArrayList<>();
+        problems = new HashMap<>();
         numberOfCompanies++;
     }
 
@@ -85,131 +88,107 @@ public class ITCompany extends Company {
 
     // adding stuff
     public void addEmployee(Employee employee) {
-        Employee[] newEmployees = new Employee[employees.length + 1];
-        System.arraycopy(employees, 0, newEmployees, 0, employees.length);
-        newEmployees[employees.length] = employee;
-        employees = newEmployees;
+        employees.add(employee);
     }
 
     public void addProject(Project project) {
-        Project[] newProjects = new Project[projects.length + 1];
-        System.arraycopy(projects, 0, newProjects, 0, projects.length);
-        newProjects[projects.length] = project;
-        projects = newProjects;
+        projects.add(project);
     }
 
     public void addTax(Tax tax) {
-        Tax[] newTaxes = new Tax[taxes.length + 1];
-        System.arraycopy(taxes, 0, newTaxes, 0, taxes.length);
-        newTaxes[taxes.length] = tax;
-        taxes = newTaxes;
+        taxes.add(tax);
     }
 
     public void addPartner(Partner partner) {
-        Partner[] newPartners = new Partner[partners.length + 1];
-        System.arraycopy(partners, 0, newPartners, 0, partners.length);
-        newPartners[partners.length] = partner;
-        partners = newPartners;
+        partners.add(partner);
     }
 
     public void addAddress(Address address) {
-        Address[] newAddresses = new Address[addresses.length + 1];
-        System.arraycopy(addresses, 0, newAddresses, 0, addresses.length);
-        newAddresses[addresses.length] = address;
-        addresses = newAddresses;
+        addresses.add(address);
     }
 
     public void addEntertainment(String name, Address address) {
-        Entertainment[] newEntertainments = new Entertainment[entertainments.length + 1];
-        System.arraycopy(entertainments, 0, newEntertainments, 0, entertainments.length);
-        newEntertainments[entertainments.length] = new Entertainment(name, address);
-        entertainments = newEntertainments;
+        entertainments.add(new Entertainment(name, address));
     }
 
     public void addEquipment(Equipment equipment) {
-        Equipment[] newEquipment = new Equipment[this.equipment.length + 1];
-        System.arraycopy(this.equipment, 0, newEquipment, 0, this.equipment.length);
-        newEquipment[this.equipment.length] = equipment;
-        this.equipment = newEquipment;
+        this.equipment.add(equipment);
     }
 
     public void addProblems(Problem problem) {
-        Problem[] newProblems = new Problem[problems.length + 1];
-        System.arraycopy(problems, 0, newProblems, 0, problems.length);
-        newProblems[problems.length] = problem;
-        problems = newProblems;
+        problems.put(problem, problem.getName());
     }
 
     // setters and getters
-    public String getName() {
-        return name;
+    public BookingService getBookingService() {
+        return bookingService;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookingService(BookingService bookingService) {
+        this.bookingService = bookingService;
     }
 
-    public Address[] getAddresses() {
+    public List<Address> getAddresses() {
         return addresses;
     }
 
-    public void setAddresses(Address[] addresses) {
+    public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
     }
 
-    public Employee[] getEmployees() {
+    public Set<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employee[] employees) {
+    public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
 
-    public Entertainment[] getEntertainments() {
+    public List<Entertainment> getEntertainments() {
         return entertainments;
     }
 
-    public void setEntertainments(Entertainment[] entertainments) {
+    public void setEntertainments(List<Entertainment> entertainments) {
         this.entertainments = entertainments;
     }
 
-    public Equipment[] getEquipment() {
+    public List<Equipment> getEquipment() {
         return equipment;
     }
 
-    public void setEquipment(Equipment[] equipment) {
+    public void setEquipment(List<Equipment> equipment) {
         this.equipment = equipment;
     }
 
-    public Partner[] getPartners() {
+    public Set<Partner> getPartners() {
         return partners;
     }
 
-    public void setPartners(Partner[] partners) {
+    public void setPartners(Set<Partner> partners) {
         this.partners = partners;
     }
 
-    public Problem[] getProblems() {
+    public Map<Problem, String> getProblems() {
         return problems;
     }
 
-    public void setProblems(Problem[] problems) {
+    public void setProblems(Map<Problem, String> problems) {
         this.problems = problems;
     }
 
-    public Project[] getProjects() {
+    public List<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(Project[] projects) {
+    public void setProjects(List<Project> projects) {
         this.projects = projects;
     }
 
-    public Tax[] getTaxes() {
+    public List<Tax> getTaxes() {
         return taxes;
     }
 
-    public void setTaxes(Tax[] taxes) {
+    public void setTaxes(List<Tax> taxes) {
         this.taxes = taxes;
     }
 }

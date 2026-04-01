@@ -5,12 +5,15 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
+import generics.Order;
+import generics.Room;
 import myresource.MyResource;
 import superclasses.Equipment;
 import superclasses.Partner;
 import superclasses.employee.Employee;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 public class Main {
 
@@ -19,20 +22,20 @@ public class Main {
         ITCompany company = new ITCompany("it-company", 2023);
 
         // employees
-        Employee Tester1 = new Tester("Mari", 19);
-        Employee Tester2 = new Tester("Sam", 20);
-        Employee Developer1 = new Developer("Samy", 21, 1);
-        Employee Developer2 = new Developer("Samy", 34, 3);
-        Employee Tester3 = new Tester("Samy", 40);
-        Employee Developer3 = new Developer("Samy", 43, 4);
+        Tester tester1 = new Tester("Mari", 19);
+        Tester tester2 = new Tester("Sam", 20);
+        Developer developer1 = new Developer("Samy", 21, 1);
+        Developer developer2 = new Developer("Samy", 34, 3);
+        Tester tester3 = new Tester("Samy", 40);
+        Developer developer3 = new Developer("Samy", 43, 4);
 
         // adding employees
-        company.addEmployee(Developer2);
-        company.addEmployee(Developer3);
-        company.addEmployee(Developer1);
-        company.addEmployee(Tester2);
-        company.addEmployee(Tester1);
-        company.addEmployee(Tester3);
+        company.addEmployee(developer2);
+        company.addEmployee(developer3);
+        company.addEmployee(developer1);
+        company.addEmployee(tester2);
+        company.addEmployee(tester1);
+        company.addEmployee(tester3);
 
         // addresses
         Address address = new Address("street of nowhere", "Tbilisi", "Georgia");
@@ -85,10 +88,10 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        ITCompany.getResume(Tester1);
-        ITCompany.getResume(Tester2);
-        ITCompany.getResume(Developer1);
-        ITCompany.getResume(Developer2);
+        ITCompany.getResume(tester1);
+        ITCompany.getResume(tester2);
+        ITCompany.getResume(developer1);
+        ITCompany.getResume(developer2);
 
         // entertainment + exceptions
         try {
@@ -121,9 +124,13 @@ public class Main {
         company.getBookingDetails(customer.getProject());
         company.cancelBooking(customer.getProject());
 
-        // entertainment
-        company.getBookingDetails(company.getEntertainments()[0]);
-        company.cancelBooking(company.getEntertainments()[0]);
+        // entertainment + first set element
+        if (!company.getEntertainments().isEmpty()) {
+            company.getBookingDetails(company.getEntertainments().get(0));
+        }
+        if (!company.getEntertainments().isEmpty()) {
+            company.cancelBooking(company.getEntertainments().get(0));
+        }
 
         // AutoCloseable
         try (MyResource myResource1 = new MyResource()) {
@@ -133,5 +140,40 @@ public class Main {
         } finally {
             System.out.println("\n resource closed");
         }
+
+        // map tests
+        System.out.println();
+        for (Map.Entry<Problem, String> entry : company.getProblems().entrySet()) {
+            System.out.println("one of the problem we have is - " + entry.getKey() + " " + entry.getValue());
+        }
+
+        // get first map element
+        if (!company.getProblems().isEmpty()) {
+            Map.Entry<Problem, String> firstEntry =
+                    company.getProblems().entrySet().iterator().next();
+
+            System.out.println("first map element - " + firstEntry.getKey() + " -> " + firstEntry.getValue());
+        }
+
+        // get first list element
+        if (!company.getAddresses().isEmpty()) {
+            System.out.println("first list element - " + company.getAddresses().get(0));
+        }
+
+        // generics
+        // Entertainment Room
+        Room<Employee> funRoom = new Room<>("Entertainment Room");
+        funRoom.add(developer1);
+        funRoom.add(tester1);
+
+        // old Equipment room
+        Room<Equipment> oldEquipmentRoom = new Room<>("old equipment Room");
+        oldEquipmentRoom.add(equipment2);
+
+        // Order for project
+        Order<Project> projectOrder = new Order<>(company.getProjects().get(0).getName(), company.getProjects().get(0), developer3);
+
+        // order new equipment
+        Order<Equipment> equipmentOrder = new Order<>("order new computer", equipment2, tester2);
     }
 }
