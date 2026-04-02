@@ -2,15 +2,27 @@ package company.partners;
 
 import superclasses.Partner;
 
+import java.util.Objects;
+
 public class CompanyPartner extends Partner {
 
-    protected int yearOfBirth;
-    private String type;
+    private int yearOfBirth;
 
-    public CompanyPartner(String name, int yearOfBirth, String type) {
+    public CompanyPartner(String name, int yearOfBirth) {
         super(name, "company");
         this.yearOfBirth = yearOfBirth;
-        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CompanyPartner p)) return false;
+        return super.equals(o) && yearOfBirth == p.yearOfBirth;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), yearOfBirth);
     }
 
     // getters and setters
@@ -20,15 +32,5 @@ public class CompanyPartner extends Partner {
 
     public void setYearOfBirth(int yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
-    }
-
-    @Override
-    public String getType() {
-        return type;
-    }
-
-    @Override
-    public void setType(String type) {
-        this.type = type;
     }
 }

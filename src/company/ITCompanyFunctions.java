@@ -1,6 +1,7 @@
 package company;
 
 import exceptions.DuplicateException;
+import superclasses.employee.Employee;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -18,8 +19,8 @@ class ITCompanyFunctions {
 
     public static BigDecimal sumOfTaxes(ITCompany company) {
         BigDecimal sum = new BigDecimal("0");
-        for (int i = 0; i < company.getTaxes().length; i++) {
-            sum = sum.add(company.getTaxes()[i].getPrice());
+        for (int i = 0; i < company.getTaxes().size(); i++) {
+            sum = sum.add(company.getTaxes().get(i).getPrice());
         }
         System.out.println("company-" + company.getName() + " has Tax: " + sum);
         return sum;
@@ -27,14 +28,14 @@ class ITCompanyFunctions {
 
     public static void entertainmentPlanning(ITCompany company, String name, Address address) {
         boolean alreadyPlanned = false;
-        for (int i = 0; i < company.getEntertainments().length; i++) {
-            if (Objects.equals(company.getEntertainments()[i].getName(), name)) {
+        for (int i = 0; i < company.getEntertainments().size(); i++) {
+            if (Objects.equals(company.getEntertainments().get(i).getName(), name)) {
                 alreadyPlanned = true;
                 break;
             }
         }
         if (!alreadyPlanned) {
-            company.addEntertainment(name, address);
+            company.getEntertainments().add(new Entertainment(name, address));
             System.out.println(name + " - entertainment planned successfully");
         } else {
 //            System.out.println(name + " - entertainment already planned");
@@ -45,10 +46,10 @@ class ITCompanyFunctions {
     public static Team teamDistribution(ITCompany company, String name) {
         int j = 0;
         Team team = new Team(name);
-        for (int i = 0; i < company.getEmployees().length; i++) {
-            if (!company.getEmployees()[i].isWorking()) {
-                team.addEmployee(company.getEmployees()[i]);
-                company.getEmployees()[i].setWorking(true);
+        for (Employee employee : company.getEmployees()) {
+            if (!employee.isWorking()) {
+                team.addEmployee(employee);
+                employee.setWorking(true);
                 j++;
                 if (j == 2) break;
             }

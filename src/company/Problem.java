@@ -2,23 +2,34 @@ package company;
 
 import interfaces.Solvable;
 
-import java.time.LocalDate;
+import java.util.Objects;
 
 public class Problem implements Solvable {
 
     private String name;
-    private LocalDate dateOfDiscovering;
     private String location;
 
     public Problem(String name, String location) {
         this.name = name;
-        this.dateOfDiscovering = LocalDate.now();
         this.location = location;
     }
 
     @Override
     public void solve() {
         System.out.println("Problem solved");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Problem p)) return false;
+        return name.equals(p.name) &&
+                location.equals(p.location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, location);
     }
 
     // getters and setters
@@ -30,27 +41,11 @@ public class Problem implements Solvable {
         this.name = name;
     }
 
-    public LocalDate getDate() {
-        return dateOfDiscovering;
-    }
-
-    public void setDate(LocalDate date) {
-        this.dateOfDiscovering = date;
-    }
-
     public String getLocation() {
         return location;
     }
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public LocalDate getDateOfDiscovering() {
-        return dateOfDiscovering;
-    }
-
-    public void setDateOfDiscovering(LocalDate dateOfDiscovering) {
-        this.dateOfDiscovering = dateOfDiscovering;
     }
 }

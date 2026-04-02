@@ -1,22 +1,35 @@
 package company.partners;
 
-import passport.Passport;
 import superclasses.Partner;
+
+import java.util.Objects;
 
 public class HumanPartner extends Partner {
 
-    private Passport passport;
+    private int age;
 
-    public HumanPartner(String name) {
+    public HumanPartner(String name, int age) {
         super(name, "human");
-        passport = new Passport();
+        this.age = age;
     }
 
-    public Passport getPassport() {
-        return passport;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HumanPartner p)) return false;
+        return super.equals(o) && age == p.age;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), age);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

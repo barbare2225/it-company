@@ -2,23 +2,26 @@ package company;
 
 import superclasses.employee.Employee;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Team {
 
     private String name;
-    private Employee[] employees;
+    private Set<Employee> employees;
     private Customer customer;
-    private int numberOfEmployees;
 
     public Team(String name) {
         this.name = name;
-        employees = new Employee[2];
-        numberOfEmployees = 0;
+        employees = new HashSet<>();
     }
 
     // functions
     public void addEmployee(Employee employee) {
-        employees[numberOfEmployees++] = employee;
+        employees.add(employee);
     }
+
+    // getters and setters
 
     public String getName() {
         return name;
@@ -28,11 +31,11 @@ public class Team {
         this.name = name;
     }
 
-    public Employee[] getEmployees() {
+    public Set<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employee[] employees) {
+    public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
 
@@ -42,13 +45,5 @@ public class Team {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public int getNumberOfEmployees() {
-        return numberOfEmployees;
-    }
-
-    public void setNumberOfEmployees(int numberOfEmployees) {
-        this.numberOfEmployees = numberOfEmployees;
     }
 }

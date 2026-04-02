@@ -7,7 +7,7 @@ public class Entertainment implements Trackable {
     private String name;
     private Address address;
 
-    Entertainment(String name, Address address) {
+    public Entertainment(String name, Address address) {
         this.name = name;
         this.address = address;
     }
