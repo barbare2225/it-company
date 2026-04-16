@@ -1,15 +1,20 @@
 package superclasses.company;
 
+import enums.CompanyType;
+import enums.Rating;
+
 public class Company {
 
     protected String name;
     protected int yearOfBirth;
-    private String type;
+    private CompanyType type;
+    private Rating rating;
 
-    public Company(String name, int year, String type) {
+    public Company(String name, int year, CompanyType type) {
         this.name = name;
         this.yearOfBirth = year;
         this.type = type;
+        rating = Rating.NULL;
     }
 
     public String getInfo() {
@@ -18,7 +23,7 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Name: " + this.getName() + ", Year: " + this.getyearOfBirth();
+        return "Name: " + this.getName() + ", Year of development: " + this.getyearOfBirth();
     }
 
     @Override
@@ -52,11 +57,27 @@ public class Company {
         this.yearOfBirth = year;
     }
 
-    public String getType() {
+    public CompanyType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(CompanyType type) {
         this.type = type;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
 }

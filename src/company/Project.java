@@ -1,12 +1,13 @@
 package company;
 
+import enums.ProjectStatus;
 import interfaces.Solvable;
 import interfaces.Trackable;
 
 public class Project implements Solvable, Trackable {
 
     private String name;
-    private String status; // in_progress, in_queue, Done
+    private ProjectStatus status;
     private Team team;
     private Customer customer;
 
@@ -14,6 +15,7 @@ public class Project implements Solvable, Trackable {
         this.name = name;
         this.team = team;
         this.customer = customer;
+        status = ProjectStatus.IN_QUEUE;
     }
 
     @Override
@@ -40,11 +42,11 @@ public class Project implements Solvable, Trackable {
         this.name = name;
     }
 
-    public String getStatus() {
+    public ProjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ProjectStatus status) {
         this.status = status;
     }
 

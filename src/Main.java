@@ -5,8 +5,11 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
+import functionalinterfaces.IntegerFunction;
 import myresource.MyResource;
+import record.Director;
 import superclasses.Equipment;
+import superclasses.Human;
 import superclasses.Partner;
 
 import java.math.BigDecimal;
@@ -16,7 +19,11 @@ public class Main {
 
     static void main(String[] args) {
 
-        ITCompany company = new ITCompany("it-company", 2023);
+        // director (record class)
+        Director director = new Director("Barbare", "Gelashvili");
+
+        // company + Runnable lambda
+        ITCompany company = new ITCompany("it-company", 2023, director, () -> System.out.println("Company created by Barbare Gelashvili. This company is a test. It's not a real one"));
 
         // employees
         Tester tester1 = new Tester("Mari", 19);
@@ -112,7 +119,7 @@ public class Main {
         }
 
         // update project
-        ITCompany.updateProject(customer.getProject(), "in-progress");
+        ITCompany.updateProject(customer.getProject(), () -> "in progress");
 
         // sum of taxes
         ITCompany.sumOfTaxes(company);
@@ -179,5 +186,13 @@ public class Main {
         if (!company.getEmployees().isEmpty()) {
             company.getEquipmentOrder().addEmployeeAsignedTo(company.getEmployees().iterator().next());
         }
+
+        // lambdas
+        System.out.println("company name length is-" + company.getsmth((e) -> e.getName().length()));
+
+        company.salaryCalculator();
+
+        IntegerFunction<Human> func = (human) -> human.getName().length();
+        System.out.println("developer-" + developer1.getName() + "'s name is made of " + func.function(developer1) + " letter");
     }
 }
