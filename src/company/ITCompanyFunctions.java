@@ -37,13 +37,9 @@ class ITCompanyFunctions {
 
     public static void entertainmentPlanning(ITCompany company, String name, Address address, TriConsumer<ITCompany, String, Address> consumer) {
 
-        boolean alreadyPlanned = false;
-        for (int i = 0; i < company.getEntertainments().size(); i++) {
-            if (Objects.equals(company.getEntertainments().get(i).getName(), name)) {
-                alreadyPlanned = true;
-                break;
-            }
-        }
+        boolean alreadyPlanned = company.getEntertainments().stream()
+                .anyMatch(e -> Objects.equals(e.getName(), name));
+
         if (!alreadyPlanned) {
             consumer.accept(company, name, address); // adds new entertainment
             System.out.println(name + " - entertainment planned successfully");
@@ -55,14 +51,13 @@ class ITCompanyFunctions {
     public static Team teamDistribution(ITCompany company, String name) {
         int j = 0;
         Team team = new Team(name);
-        for (Employee employee : company.getEmployees()) {
-            if (!employee.getStatus().isActive()) {
-                team.addEmployee(employee);
-                employee.setStatus(EmployeeStatus.IS_WORKING);
-                j++;
-                if (j == 2) break;
-            }
-        }
+        company.getEmployees().stream()
+                .filter(employee -> !employee.getStatus().isActive())
+                .limit(2)
+                .forEach(employee -> {
+                    team.addEmployee(employee);
+                    employee.setStatus(EmployeeStatus.IS_WORKING);
+                });
         return team;
     }
 
