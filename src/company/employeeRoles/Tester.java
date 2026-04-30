@@ -1,40 +1,31 @@
 package company.employeeRoles;
 
+import enums.Department;
 import superclasses.employee.Employee;
 
 import java.util.Objects;
 
 public class Tester extends Employee {
 
-    private String status; // is_working, Is_In_queue
-
     public Tester(String name, int age) {
-        super(name, age, "Tester");
-        status = "Is_In_queue";
+        super(name, age, "Tester", Department.IT);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Tester tester)) return false;
-        return super.equals(o) && Objects.equals(status, tester.status);
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), status);
+        return Objects.hash(super.hashCode());
     }
 
     @Override
     public void resume() {
-        System.out.println("resumeTester: name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " status-" + this.status);
+        System.out.println("resumeTester: department-" + super.getDepartment() + " name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " status-" + super.getStatus().getValue());
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

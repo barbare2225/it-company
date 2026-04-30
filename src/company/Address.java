@@ -10,7 +10,7 @@ public final class Address implements IAddress {
 
     // static block
     static {
-        System.out.println("=== Address System Loaded ===");
+        System.out.println("Address System Loaded");
         System.out.println("Government max limit: " + maxAddresses);
     }
 

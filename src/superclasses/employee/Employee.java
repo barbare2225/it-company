@@ -1,6 +1,9 @@
 package superclasses.employee;
 
 import company.Project;
+import enums.Department;
+import enums.EmployeeStatus;
+import enums.Rating;
 import exceptions.InvalidSalaryException;
 import interfaces.Payable;
 import interfaces.Workable;
@@ -11,24 +14,28 @@ import java.util.Objects;
 public class Employee extends Human implements Payable, Workable {
 
     private String role;
-    private boolean isWorking;
+    private EmployeeStatus status;
+    private Rating rating;
+    private Department department;
 
-    public Employee(String name, int age, String role) {
+    public Employee(String name, int age, String role, Department department) {
         super(name, age);
         this.role = role;
-        isWorking = false;
+        status = EmployeeStatus.IS_NOT_WORKING;
+        rating = Rating.NULL;
+        this.department = department;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Objects.equals(role, employee.role) && Objects.equals(isWorking, employee.isWorking);
+        return Objects.equals(role, employee.role) && Objects.equals(status, employee.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(role, isWorking);
+        return Objects.hash(role, status);
     }
 
     @Override
@@ -70,11 +77,27 @@ public class Employee extends Human implements Payable, Workable {
         this.role = role;
     }
 
-    public boolean isWorking() {
-        return isWorking;
+    public EmployeeStatus getStatus() {
+        return status;
     }
 
-    public void setWorking(boolean working) {
-        isWorking = working;
+    public void setStatus(EmployeeStatus status) {
+        this.status = status;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

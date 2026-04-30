@@ -2,16 +2,21 @@ package company;
 
 import company.employeeRoles.Developer;
 import company.employeeRoles.Tester;
+import enums.CompanyType;
+import enums.ProjectStatus;
 import exceptions.BookingException;
 import generics.Order;
 import generics.Room;
 import interfaces.Trackable;
+import record.Director;
 import superclasses.Equipment;
 import superclasses.Partner;
 import superclasses.company.Company;
 import superclasses.employee.Employee;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class ITCompany extends Company {
 
@@ -24,6 +29,7 @@ public class ITCompany extends Company {
 
     BookingService bookingService = new BookingService();
 
+    private Director director;
     private List<Address> addresses;
     private Set<Employee> employees;
     private List<Entertainment> entertainments;
@@ -37,8 +43,10 @@ public class ITCompany extends Company {
     private Order<Entertainment> orderEntertainment;
     private Order<Equipment> equipmentOrder;
 
-    public ITCompany(String name, int year) {
-        super(name, year, "IT");
+    public ITCompany(String name, int year, Director director, Runnable run) {
+        run.run();
+        this.director = director;
+        super(name, year, CompanyType.IT);
         projects = new ArrayList<>();
         employees = new HashSet<>();
         partners = new HashSet<>();
@@ -64,24 +72,38 @@ public class ITCompany extends Company {
     }
 
     // functions
-    public static void updateProject(Project project, String status) {
-        ITCompanyFunctions.updateProject(project, status);
+    public static void updateProject(Project project, Supplier<String> supplier) {
+        ITCompanyFunctions.updateProject(project, supplier,
+                (e) -> System.out.println("trying to update project-" + e.getName() + " current status-" + e.getStatus()),
+                (project2, status2) -> project2.setStatus(ProjectStatus.getProjectStatus(status2)));
     }
 
     public static void sumOfTaxes(ITCompany company) {
-        ITCompanyFunctions.sumOfTaxes(company);
+        ITCompanyFunctions.sumOfTaxes(company, (company1, i) -> company1.getTaxes().get(i).getPrice());
     }
 
     public static void entertainmentPlanning(ITCompany company, String name, Address address) {
-        ITCompanyFunctions.entertainmentPlanning(company, name, address);
+        ITCompanyFunctions.entertainmentPlanning(company, name, address,
+                (company1, name1, address1) -> {
+                    company1.getEntertainments().add(new Entertainment(name1, address1));
+                });
     }
 
     public static void bookService(Customer customer, ITCompany company, String projectName) throws BookingException {
-        BookingService.bookService(customer, company, projectName);
+        BookingService.bookService(customer, company, projectName, e -> e.getEmployees().size() == 2);
     }
 
     public static void getResume(Employee employee) {
         BookingService.employeeResume(employee);
+    }
+
+    public Object getsmth(Function<Company, Object> smth) {
+        return smth.apply(this);
+    }
+
+    public void salaryCalculator() {
+        ITCompanyFunctions.salaryCalculator(employees, (employee) ->
+                System.out.println("salary of " + employee + " is-" + employee.getRating().getRate() * employee.getStatus().getBonus() * 200 + " lari"));
     }
 
     public void cancelBooking(Trackable trackable) {
@@ -200,5 +222,13 @@ public class ITCompany extends Company {
 
     public void setEquipmentOrder(Order<Equipment> equipmentOrder) {
         this.equipmentOrder = equipmentOrder;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
     }
 }

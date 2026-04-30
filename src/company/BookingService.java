@@ -4,17 +4,18 @@ import exceptions.BookingException;
 import interfaces.Trackable;
 import superclasses.employee.Employee;
 
+import java.util.function.Predicate;
+
 public class BookingService {
 
-    public static void bookService(Customer customer, ITCompany company, String projectName) throws BookingException {
+    public static void bookService(Customer customer, ITCompany company, String projectName, Predicate<Team> teamIsFull) throws BookingException {
         Team team = ITCompanyFunctions.teamDistribution(company, projectName);
-        if (team.getEmployees().size() == 2) {
+        if (teamIsFull.test(team)) { // team members are 2
             Project project = new Project(projectName, customer, team);
             company.getProjects().add(project);
             customer.addProject(project);
             System.out.println(customer.getName() + " booked service for project - " + projectName);
         } else {
-            System.out.println(customer.getName() + " couldn't book service for project - " + projectName);
             throw new BookingException("Booking failed");
         }
     }

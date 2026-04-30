@@ -1,5 +1,6 @@
 package company.employeeRoles;
 
+import enums.Department;
 import superclasses.employee.Employee;
 
 import java.util.Objects;
@@ -9,7 +10,7 @@ public class Developer extends Employee {
     private final int succesfullProjects;
 
     public Developer(String name, int age, int succesfullProjects) {
-        super(name, age, "Developer");
+        super(name, age, "Developer", Department.IT);
         this.succesfullProjects = succesfullProjects;
     }
 
@@ -27,7 +28,7 @@ public class Developer extends Employee {
 
     @Override
     public void resume() {
-        System.out.println("resumeDeveloper: name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " succesfullProjects-" + this.succesfullProjects);
+        System.out.println("resumeDeveloper: department-" + super.getDepartment() + " name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " succesfullProjects-" + this.succesfullProjects);
     }
 
     public int getSuccesfullProjects() {
