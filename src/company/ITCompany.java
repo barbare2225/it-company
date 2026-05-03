@@ -1,5 +1,6 @@
 package company;
 
+import annotation.Important;
 import company.employeeRoles.Developer;
 import company.employeeRoles.Tester;
 import enums.CompanyType;
@@ -27,8 +28,9 @@ public class ITCompany extends Company {
         System.out.println("Company Class Loaded");
     }
 
-    BookingService bookingService = new BookingService();
+    private BookingService bookingService = new BookingService();
 
+    @Important(value = "Director of this company")
     private Director director;
     private List<Address> addresses;
     private Set<Employee> employees;
@@ -72,6 +74,7 @@ public class ITCompany extends Company {
     }
 
     // functions
+    @Important(value = "project status updater")
     public static void updateProject(Project project, Supplier<String> supplier) {
         ITCompanyFunctions.updateProject(project, supplier,
                 (e) -> System.out.println("trying to update project-" + e.getName() + " current status-" + e.getStatus()),
@@ -89,11 +92,12 @@ public class ITCompany extends Company {
                 });
     }
 
+    @Important(value = "Booking Company Service")
     public static void bookService(Customer customer, ITCompany company, String projectName) throws BookingException {
         BookingService.bookService(customer, company, projectName, e -> e.getEmployees().size() == 2);
     }
 
-    public static void getResume(Employee employee) {
+    public static void getEmployeeResume(Employee employee) {
         BookingService.employeeResume(employee);
     }
 
@@ -106,6 +110,7 @@ public class ITCompany extends Company {
                 System.out.println("salary of " + employee + " is-" + employee.getRating().getRate() * employee.getStatus().getBonus() * 200 + " lari"));
     }
 
+    @Important(value = "CanCel Booked Service")
     public void cancelBooking(Trackable trackable) {
         bookingService.cancelBooking(trackable);
     }

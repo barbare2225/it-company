@@ -1,3 +1,4 @@
+import annotation.Important;
 import company.*;
 import company.employeeRoles.Developer;
 import company.employeeRoles.Tester;
@@ -5,15 +6,26 @@ import company.equipment.ElectronicDevice;
 import company.equipment.MechanicalDevice;
 import company.partners.CompanyPartner;
 import company.partners.HumanPartner;
+import enums.EmployeeStatus;
 import functionalinterfaces.IntegerFunction;
 import myresource.MyResource;
 import record.Director;
 import superclasses.Equipment;
 import superclasses.Human;
 import superclasses.Partner;
+import superclasses.employee.Employee;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 
 public class Main {
 
@@ -96,10 +108,10 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        ITCompany.getResume(tester1);
-        ITCompany.getResume(tester2);
-        ITCompany.getResume(developer1);
-        ITCompany.getResume(developer2);
+        ITCompany.getEmployeeResume(tester1);
+        ITCompany.getEmployeeResume(tester2);
+        ITCompany.getEmployeeResume(developer1);
+        ITCompany.getEmployeeResume(developer2);
 
         // entertainment + exceptions
         try {
@@ -194,5 +206,111 @@ public class Main {
 
         IntegerFunction<Human> func = (human) -> human.getName().length();
         System.out.println("developer-" + developer1.getName() + "'s name is made of " + func.function(developer1) + " letter");
+
+        // streams
+        Set<Employee> workingEmployees = company.getEmployees().stream()
+                .filter(e -> e.getStatus() == EmployeeStatus.IS_WORKING)
+                .peek(e -> System.out.println("1working employee " + e.getName()))
+                .collect(Collectors.toSet());
+
+        for (Employee employee : workingEmployees) {
+            System.out.println("2working employee " + employee.getName());
+        }
+
+        boolean samysAreAllWorking = company.getEmployees().stream()
+                .filter(employee -> "Samy".equals(employee.getName()))
+                .allMatch(employee -> employee.getStatus() == EmployeeStatus.IS_WORKING);
+
+        long samyscount = company.getEmployees().stream()
+                .filter(employee -> "Samy".equals(employee.getName()))
+                .count();
+
+        if (samysAreAllWorking) System.out.println("Samy's Are All Working there's " + samyscount + " Samy");
+        else System.out.println("there's " + samyscount + " Samy, not all works at the moment");
+
+        List<String> addressLinks = company.getAddresses().stream()
+                .map(addres -> addres.mapLink())
+                .toList();
+
+        // Optional + 7th stream
+        Optional<Employee> firstSamy = company.getProjects().stream()
+                .flatMap(project -> project.getTeam().getEmployees().stream())
+                .filter(employee -> "Samy".equals(employee.getName()))
+                .findFirst();
+
+        int age = firstSamy
+                .map(employee -> employee.getAge())
+                .orElseThrow(() -> new RuntimeException("No Result"));
+
+        firstSamy.ifPresent(employee -> {
+            System.out.println("samy employee");
+            employee.resume();
+        });
+
+        // reflection
+        try {
+            Class<ITCompany> testCompany = (Class<ITCompany>) Class.forName("company.ITCompany");
+            System.out.println("ITCompany CLASS: ");
+
+            // fields
+            System.out.println("FIELDS:");
+            for (Field field : testCompany.getDeclaredFields()) {
+                System.out.print("Name: " + field.getName());
+                System.out.print("Type: " + field.getType());
+                System.out.println("Modifiers: " + Modifier.toString(field.getModifiers()));
+
+                // annotation handling
+                if (field.isAnnotationPresent(Important.class)) {
+                    Important important = field.getAnnotation(Important.class);
+                    System.out.println(field.getName() + " has annotation Important with value " + important.value() + "------------");
+                }
+            }
+
+            // constructors
+            System.out.println("CONSTRUCTORS");
+            for (Constructor<?> constructor : testCompany.getDeclaredConstructors()) {
+                System.out.println("Name: " + constructor.getName());
+                System.out.println("Modifiers: " + Modifier.toString(constructor.getModifiers()));
+                System.out.print("Parameters: ");
+                for (Class<?> param : constructor.getParameterTypes()) {
+                    System.out.print(param.getSimpleName() + " ");
+                }
+            }
+            System.out.println();
+
+            // methods
+            System.out.println("METHODS");
+            for (Method method : testCompany.getDeclaredMethods()) {
+                System.out.println("Name: " + method.getName());
+                System.out.println("Modifiers: " + Modifier.toString(method.getModifiers()));
+                System.out.println("returnType: " + method.getReturnType().getSimpleName());
+                System.out.print("Parameters: ");
+                for (Class<?> param : method.getParameterTypes()) {
+                    System.out.print(param.getSimpleName() + " ");
+                }
+                System.out.println();
+
+                // annotation handling
+                if (method.isAnnotationPresent(Important.class)) {
+                    Important important = method.getAnnotation(Important.class);
+                    System.out.println(method.getName() + " has annotation Important with value " + important.value() + "------------");
+                }
+            }
+
+            // create an object
+            Constructor<ITCompany> constructor = testCompany.getDeclaredConstructor(String.class, int.class, Director.class, Runnable.class);
+            ITCompany ITCompany = constructor.newInstance("name", 1999, director,
+                    (Runnable) () -> System.out.println("Company created using reflection")
+            );
+
+            // call method
+            Method setName = testCompany.getDeclaredMethod("setDirector", Director.class);
+            setName.setAccessible(true);
+            setName.invoke(ITCompany, new Director("Mariam", "shelling"));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }
