@@ -1,0 +1,8 @@
+package com.solvd.itcompany.exceptions;
+
+public class InvalidAgeException extends RuntimeException {
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
