@@ -36,3 +36,6 @@ release.properties
 
 # Windows
 Thumbs.db
+
+logs/
+result.txt
