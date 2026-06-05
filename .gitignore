@@ -34,7 +34,7 @@ release.properties
 # Mac OS
 .DS_Store
 
-.ideagit branch -d
+.idea
 
 # Windows
 Thumbs.db
