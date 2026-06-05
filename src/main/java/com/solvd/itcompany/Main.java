@@ -16,6 +16,8 @@ import com.solvd.itcompany.superclasses.Equipment;
 import com.solvd.itcompany.superclasses.Human;
 import com.solvd.itcompany.superclasses.Partner;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -30,13 +32,15 @@ import java.util.stream.Collectors;
 
 public class Main {
 
+    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+
     static void main(String[] args) {
 
         // director (record class)
         Director director = new Director("Barbare", "Gelashvili");
 
         // company + Runnable lambda
-        ITCompany company = new ITCompany("it-company", 2023, director, () -> System.out.println("Company created by Barbare Gelashvili. This company is a test. It's not a real one"));
+        ITCompany company = new ITCompany("it-company", 2023, director, () -> LOGGER.info("Company created by Barbare Gelashvili. This company is a test. It's not a real one"));
 
         // employees
         Tester tester1 = new Tester("Mari", 19);
@@ -107,7 +111,7 @@ public class Main {
         try {
             ITCompany.bookService(customer, company, "new my project");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         ITCompany.getEmployeeResume(tester1);
         ITCompany.getEmployeeResume(tester2);
@@ -118,17 +122,17 @@ public class Main {
         try {
             ITCompany.entertainmentPlanning(company, "party", address);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         try {
             ITCompany.entertainmentPlanning(company, "party", address2);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         try {
             ITCompany.entertainmentPlanning(company, "party2", address3);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
 
         // update project
@@ -138,7 +142,7 @@ public class Main {
         ITCompany.sumOfTaxes(company);
 
         // print how many company we have
-        System.out.println("We have " + ITCompany.getNumberOfCompanies() + " company\n");
+        LOGGER.info("We have {} company", ITCompany.getNumberOfCompanies());
 
         // polymorphism with the interfaces examples
         // project
@@ -155,17 +159,16 @@ public class Main {
 
         // AutoCloseable
         try (MyResource myResource1 = new MyResource()) {
-            System.out.println("this is my resource");
+            LOGGER.info("this is my resource");
         } catch (Exception e) {
-            System.out.println("exc:-" + e.getMessage());
+            LOGGER.error("exc:-", e);
         } finally {
-            System.out.println("\n resource closed");
+            LOGGER.info("\n resource closed");
         }
 
         // map tests
-        System.out.println();
         for (Map.Entry<Problem, String> entry : company.getProblems().entrySet()) {
-            System.out.println("one of the problem we have is - " + entry.getKey() + " " + entry.getValue());
+            LOGGER.info("one of the problem we have is - {} {} ", entry.getKey(), entry.getValue());
         }
 
         // get first map element
@@ -173,12 +176,12 @@ public class Main {
             Map.Entry<Problem, String> firstEntry =
                     company.getProblems().entrySet().iterator().next();
 
-            System.out.println("first map element - " + firstEntry.getKey() + " -> " + firstEntry.getValue());
+            LOGGER.info("first map element - {} -> {} ", firstEntry.getKey(), firstEntry.getValue());
         }
 
         // get first list element
         if (!company.getAddresses().isEmpty()) {
-            System.out.println("first list element - " + company.getAddresses().get(0));
+            LOGGER.info("first list element - {}" ,company.getAddresses().get(0));
         }
 
         // generics
@@ -201,21 +204,21 @@ public class Main {
         }
 
         // lambdas
-        System.out.println("company name length is-" + company.getsmth((e) -> e.getName().length()));
+        LOGGER.info("company name length is-{}",company.getsmth((e) -> e.getName().length()));
 
         company.salaryCalculator();
 
         IntegerFunction<Human> func = (human) -> human.getName().length();
-        System.out.println("developer-" + developer1.getName() + "'s name is made of " + func.function(developer1) + " letter");
+        LOGGER.info("developer-{}s name is made of {} letter", developer1.getName() ,func.function(developer1));
 
         // streams
         Set<Employee> workingEmployees = company.getEmployees().stream()
                 .filter(e -> e.getStatus() == EmployeeStatus.IS_WORKING)
-                .peek(e -> System.out.println("1working employee " + e.getName()))
+                .peek(e -> LOGGER.info("1working employee {}", e.getName()))
                 .collect(Collectors.toSet());
 
         for (Employee employee : workingEmployees) {
-            System.out.println("2working employee " + employee.getName());
+            LOGGER.info("2working employee {}",employee.getName());
         }
 
         boolean samysAreAllWorking = company.getEmployees().stream()
@@ -226,11 +229,11 @@ public class Main {
                 .filter(employee -> "Samy".equals(employee.getName()))
                 .count();
 
-        if (samysAreAllWorking) System.out.println("Samy's Are All Working there's " + samyscount + " Samy");
-        else System.out.println("there's " + samyscount + " Samy, not all works at the moment");
+        if (samysAreAllWorking) LOGGER.info("Samy's Are All Working there's {} Samy", samyscount);
+        else LOGGER.info("there's {} Samy, not all works at the moment" ,samyscount);
 
         List<String> addressLinks = company.getAddresses().stream()
-                .map(addres -> addres.mapLink())
+                .map(tmpAddress -> tmpAddress.mapLink())
                 .toList();
 
         // Optional + 7th stream
@@ -244,64 +247,57 @@ public class Main {
                 .orElseThrow(() -> new RuntimeException("No Result"));
 
         firstSamy.ifPresent(employee -> {
-            System.out.println("samy employee");
+            LOGGER.info("Samy employee");
             employee.resume();
         });
 
         // reflection
         try {
             Class<ITCompany> testCompany = (Class<ITCompany>) Class.forName("com.solvd.itcompany.company.ITCompany");
-            System.out.println("ITCompany CLASS: ");
+            LOGGER.info("ITCompany CLASS: ");
 
             // fields
-            System.out.println("FIELDS:");
+            LOGGER.info("FIELDS:");
             for (Field field : testCompany.getDeclaredFields()) {
-                System.out.print("Name: " + field.getName());
-                System.out.print("Type: " + field.getType());
-                System.out.println("Modifiers: " + Modifier.toString(field.getModifiers()));
+                LOGGER.info("Name: {}, Type: {},Modifiers: {}" ,field.getName(),field.getType(),Modifier.toString(field.getModifiers()));
 
                 // annotation handling
                 if (field.isAnnotationPresent(Important.class)) {
                     Important important = field.getAnnotation(Important.class);
-                    System.out.println(field.getName() + " has annotation Important with value " + important.value() + "------------");
+                    LOGGER.info("{} has annotation Important with value {} ------------",field.getName(), important.value());
                 }
             }
 
             // constructors
-            System.out.println("CONSTRUCTORS");
+            LOGGER.info("CONSTRUCTORS");
             for (Constructor<?> constructor : testCompany.getDeclaredConstructors()) {
-                System.out.println("Name: " + constructor.getName());
-                System.out.println("Modifiers: " + Modifier.toString(constructor.getModifiers()));
-                System.out.print("Parameters: ");
+                LOGGER.info("Name: {}, Modifiers: {}", constructor.getName(),Modifier.toString(constructor.getModifiers()));
+                LOGGER.info("CParameters: ");
                 for (Class<?> param : constructor.getParameterTypes()) {
-                    System.out.print(param.getSimpleName() + " ");
+                    LOGGER.info( " {}",param.getSimpleName());
                 }
             }
-            System.out.println();
 
             // methods
-            System.out.println("METHODS");
+            LOGGER.info("METHODS");
             for (Method method : testCompany.getDeclaredMethods()) {
-                System.out.println("Name: " + method.getName());
-                System.out.println("Modifiers: " + Modifier.toString(method.getModifiers()));
-                System.out.println("returnType: " + method.getReturnType().getSimpleName());
-                System.out.print("Parameters: ");
+                LOGGER.info("Name: {}, Modifiers: {}, returnType: {} ", method.getName(),Modifier.toString(method.getModifiers()),method.getReturnType().getSimpleName());
+                LOGGER.info("MParameters: ");
                 for (Class<?> param : method.getParameterTypes()) {
-                    System.out.print(param.getSimpleName() + " ");
+                    LOGGER.info(" {}",param.getSimpleName());
                 }
-                System.out.println();
 
                 // annotation handling
                 if (method.isAnnotationPresent(Important.class)) {
                     Important important = method.getAnnotation(Important.class);
-                    System.out.println(method.getName() + " has annotation Important with value " + important.value() + "------------");
+                    LOGGER.info("{} has annotation Important with value {} ------------",method.getName(), important.value());
                 }
             }
 
             // create an object
             Constructor<ITCompany> constructor = testCompany.getDeclaredConstructor(String.class, int.class, Director.class, Runnable.class);
             ITCompany ITCompany = constructor.newInstance("name", 1999, director,
-                    (Runnable) () -> System.out.println("Company created using reflection")
+                    (Runnable) () -> LOGGER.info("Company created using reflection")
             );
 
             // call method
@@ -311,6 +307,13 @@ public class Main {
 
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+
+        // count unique words from book
+        try {
+            WordCounter.countUniqueWords();
+        } catch (Exception e) {
+            LOGGER.error("Failed to count unique words", e);
         }
     }
 

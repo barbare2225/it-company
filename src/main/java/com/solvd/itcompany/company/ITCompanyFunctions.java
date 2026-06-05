@@ -5,6 +5,8 @@ import com.solvd.itcompany.exceptions.DuplicateException;
 import com.solvd.itcompany.functionalinterfaces.SalaryCalculator;
 import com.solvd.itcompany.functionalinterfaces.TriConsumer;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -16,13 +18,15 @@ import java.util.function.Supplier;
 
 class ITCompanyFunctions {
 
+    private static final Logger LOGGER = LogManager.getLogger(ITCompanyFunctions.class);
+
     public static void updateProject(Project project, Supplier<String> supplier, Consumer<Project> consumer, BiConsumer<Project, String> projectUpdater) {
         consumer.accept(project);
         if (Objects.equals(project.getStatus(), supplier.get())) {
-            System.out.println("Project wasn't updated, it's" + project.getStatus());
+            LOGGER.info("Project wasn't updated, it's {}", project.getStatus());
         } else {
             projectUpdater.accept(project, supplier.get());
-            System.out.println("Project updated - to " + supplier.get());
+            LOGGER.info("Project updated - to {}", supplier.get());
         }
     }
 
@@ -31,7 +35,7 @@ class ITCompanyFunctions {
         for (int i = 0; i < company.getTaxes().size(); i++) {
             sum = sum.add(taxesCalculator.apply(company, i));
         }
-        System.out.println("company-" + company.getName() + " has Tax: " + sum);
+        LOGGER.info("company-{} has Tax: {}", company.getName(), sum);
         return sum;
     }
 
@@ -42,7 +46,7 @@ class ITCompanyFunctions {
 
         if (!alreadyPlanned) {
             consumer.accept(company, name, address); // adds new entertainment
-            System.out.println(name + " - entertainment planned successfully");
+            LOGGER.info("{} - entertainment planned successfully",name );
         } else {
             throw new DuplicateException(name + " - entertainment already planned");
         }

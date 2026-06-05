@@ -1,5 +1,9 @@
 package com.solvd.itcompany.enums;
 
+import com.solvd.itcompany.company.employeeRoles.Tester;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum Rating {
 
     SUPER("one of the best", 5),
@@ -9,8 +13,10 @@ public enum Rating {
     BAD("doesn't work well", 1),
     NULL("no rating", 5);
 
+    private static final Logger LOGGER = LogManager.getLogger(Rating.class);
+
     static {
-        System.out.println("=== Rating enum loaded ===");
+        LOGGER.info("=== Rating enum loaded ===");
     }
 
     private final String name;

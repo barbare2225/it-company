@@ -1,0 +1,841 @@
+2026-06-05 14:33:52,988 [main] INFO com.solvd.itcompany.company.ITCompany - Company Class Loaded
+2026-06-05 14:33:52,990 [main] INFO com.solvd.itcompany.Main - Company created by Barbare Gelashvili. This company is a test. It's not a real one
+2026-06-05 14:33:52,992 [main] INFO com.solvd.itcompany.enums.CompanyType - === CompanyType enum loaded ===
+2026-06-05 14:33:52,993 [main] INFO com.solvd.itcompany.enums.Rating - === Rating enum loaded ===
+2026-06-05 14:33:52,999 [main] INFO com.solvd.itcompany.enums.Department - === Department enum loaded ===
+2026-06-05 14:33:53,001 [main] INFO com.solvd.itcompany.enums.EmployeeStatus - === EmployeeStatus enum loaded ===
+2026-06-05 14:33:53,001 [main] INFO com.solvd.itcompany.company.Address - Address System Loaded
+2026-06-05 14:33:53,003 [main] INFO com.solvd.itcompany.company.Address - Government max limit: 1000
+2026-06-05 14:33:53,003 [main] INFO com.solvd.itcompany.company.Address - New address registered. Total: 1
+2026-06-05 14:33:53,003 [main] INFO com.solvd.itcompany.company.Address - New address registered. Total: 2
+2026-06-05 14:33:53,003 [main] INFO com.solvd.itcompany.company.Address - New address registered. Total: 3
+2026-06-05 14:33:53,027 [main] INFO com.solvd.itcompany.enums.ProjectStatus - === ProjectStatus enum loaded ===
+2026-06-05 14:33:53,029 [main] INFO com.solvd.itcompany.company.BookingService - Barbare booked service for project - new my project
+2026-06-05 14:33:53,029 [main] INFO com.solvd.itcompany.company.employeeRoles.Tester - resumeTester: department-IT name-Mari age-19 role-Tester status-is not working
+2026-06-05 14:33:53,029 [main] INFO com.solvd.itcompany.company.employeeRoles.Tester - resumeTester: department-IT name-Sam age-20 role-Tester status-is not working
+2026-06-05 14:33:53,029 [main] INFO com.solvd.itcompany.company.employeeRoles.Developer - resumeDeveloper: department-IT name-Samy age-21 role-Developer successful Projects-1
+2026-06-05 14:33:53,029 [main] INFO com.solvd.itcompany.company.employeeRoles.Developer - resumeDeveloper: department-IT name-Samy age-34 role-Developer successful Projects-3
+2026-06-05 14:33:53,033 [main] INFO com.solvd.itcompany.company.ITCompanyFunctions - party - entertainment planned successfully
+2026-06-05 14:33:53,034 [main] ERROR com.solvd.itcompany.Main - party - entertainment already planned
+2026-06-05 14:33:53,034 [main] INFO com.solvd.itcompany.company.ITCompanyFunctions - party2 - entertainment planned successfully
+2026-06-05 14:33:53,035 [main] INFO com.solvd.itcompany.company.ITCompany - trying to update project-new my project current status-IN_QUEUE
+2026-06-05 14:33:53,035 [main] INFO com.solvd.itcompany.company.ITCompanyFunctions - Project updated - to in progress
+2026-06-05 14:33:53,036 [main] INFO com.solvd.itcompany.company.ITCompanyFunctions - company-it-company has Tax: 3466.6
+2026-06-05 14:33:53,036 [main] INFO com.solvd.itcompany.Main - We have 1 company
+2026-06-05 14:33:53,036 [main] INFO com.solvd.itcompany.company.Project - Barbare booked project:new my project with team:new my project
+2026-06-05 14:33:53,036 [main] INFO com.solvd.itcompany.company.Project - Barbare cancelled project-new my project
+2026-06-05 14:33:53,036 [main] INFO com.solvd.itcompany.company.Entertainment - entertainment booking Details: name-party location-Georgia,Tbilisi,street of nowhere
+2026-06-05 14:33:53,037 [main] INFO com.solvd.itcompany.company.Entertainment - Entertainment-party got Cancelled
+2026-06-05 14:33:53,037 [main] INFO com.solvd.itcompany.Main - this is my resource
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.myresource.MyResource - my resource closed
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.Main - 
+ resource closed
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.Main - one of the problem we have is - com.solvd.itcompany.company.Problem@542da3bc error-on-line-2 
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.Main - one of the problem we have is - com.solvd.itcompany.company.Problem@30a53c33 doesnt-turn-on 
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.Main - first map element - com.solvd.itcompany.company.Problem@542da3bc -> error-on-line-2 
+2026-06-05 14:33:53,038 [main] INFO com.solvd.itcompany.Main - first list element - com.solvd.itcompany.company.Address@2d7275fc
+2026-06-05 14:33:53,039 [main] INFO com.solvd.itcompany.Main - company name length is-10
+2026-06-05 14:33:53,040 [main] INFO com.solvd.itcompany.company.ITCompany - salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@79e2c065} is-2000 lari
+2026-06-05 14:33:53,040 [main] INFO com.solvd.itcompany.company.ITCompany - salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@3a93b025} is-2000 lari
+2026-06-05 14:33:53,040 [main] INFO com.solvd.itcompany.company.ITCompany - salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@35cabb2a} is-1000 lari
+2026-06-05 14:33:53,040 [main] INFO com.solvd.itcompany.company.ITCompany - salary of Human{name=Sam, passport=com.solvd.itcompany.passport.Passport@7e07db1f} is-1000 lari
+2026-06-05 14:33:53,041 [main] INFO com.solvd.itcompany.Main - developer-Samys name is made of 4 letter
+2026-06-05 14:33:53,042 [main] INFO com.solvd.itcompany.Main - 1working employee Samy
+2026-06-05 14:33:53,043 [main] INFO com.solvd.itcompany.Main - 1working employee Samy
+2026-06-05 14:33:53,043 [main] INFO com.solvd.itcompany.Main - 2working employee Samy
+2026-06-05 14:33:53,043 [main] INFO com.solvd.itcompany.Main - 2working employee Samy
+2026-06-05 14:33:53,045 [main] INFO com.solvd.itcompany.Main - there's 3 Samy, not all works at the moment
+2026-06-05 14:33:53,047 [main] INFO com.solvd.itcompany.Main - Samy employee
+2026-06-05 14:33:53,047 [main] INFO com.solvd.itcompany.company.employeeRoles.Developer - resumeDeveloper: department-IT name-Samy age-43 role-Developer successful Projects-4
+2026-06-05 14:33:53,048 [main] INFO com.solvd.itcompany.Main - ITCompany CLASS: 
+2026-06-05 14:33:53,048 [main] INFO com.solvd.itcompany.Main - FIELDS:
+2026-06-05 14:33:53,048 [main] INFO com.solvd.itcompany.Main - Name: LOGGER, Type: interface org.apache.logging.log4j.Logger,Modifiers: private static final
+2026-06-05 14:33:53,049 [main] INFO com.solvd.itcompany.Main - Name: numberOfCompanies, Type: int,Modifiers: private static
+2026-06-05 14:33:53,049 [main] INFO com.solvd.itcompany.Main - Name: bookingService, Type: class com.solvd.itcompany.company.BookingService,Modifiers: private
+2026-06-05 14:33:53,049 [main] INFO com.solvd.itcompany.Main - Name: director, Type: class com.solvd.itcompany.record.Director,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - director has annotation Important with value Director of this company ------------
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: addresses, Type: interface java.util.List,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: employees, Type: interface java.util.Set,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: entertainments, Type: interface java.util.List,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: equipment, Type: interface java.util.List,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: partners, Type: interface java.util.Set,Modifiers: private
+2026-06-05 14:33:53,051 [main] INFO com.solvd.itcompany.Main - Name: problems, Type: interface java.util.Map,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: projects, Type: interface java.util.List,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: taxes, Type: interface java.util.List,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: devRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: testerRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: orderEntertainment, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: equipmentOrder, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - CONSTRUCTORS
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - Name: com.solvd.itcompany.company.ITCompany, Modifiers: public
+2026-06-05 14:33:53,052 [main] INFO com.solvd.itcompany.Main - CParameters: 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main -  String
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main -  int
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main -  Director
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main -  Runnable
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - METHODS
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - Name: getEmployees, Modifiers: public, returnType: Set 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - Name: getEquipment, Modifiers: public, returnType: List 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - Name: getPartners, Modifiers: public, returnType: Set 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,053 [main] INFO com.solvd.itcompany.Main - Name: getAddresses, Modifiers: public, returnType: List 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - Name: getProblems, Modifiers: public, returnType: Map 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - Name: bookService, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main -  Customer
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main -  ITCompany
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main -  String
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - bookService has annotation Important with value Booking Company Service ------------
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - Name: getEmployeeResume, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,054 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main -  Employee
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - Name: entertainmentPlanning, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main -  ITCompany
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main -  String
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main -  Address
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - Name: getEquipmentOrder, Modifiers: public, returnType: Order 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - Name: getBookingDetails, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,055 [main] INFO com.solvd.itcompany.Main -  Trackable
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - Name: getOrderEntertainment, Modifiers: public, returnType: Order 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - Name: setDirector, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main -  Director
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - Name: getEntertainments, Modifiers: public, returnType: List 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - Name: salaryCalculator, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - Name: updateProject, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,056 [main] INFO com.solvd.itcompany.Main -  Project
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main -  Supplier
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - updateProject has annotation Important with value project status updater ------------
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - Name: getNumberOfCompanies, Modifiers: public static, returnType: int 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - Name: getProjects, Modifiers: public, returnType: List 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - Name: getTesterRoom, Modifiers: public, returnType: Room 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - Name: cancelBooking, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,057 [main] INFO com.solvd.itcompany.Main -  Trackable
+2026-06-05 14:33:53,058 [main] INFO com.solvd.itcompany.Main - cancelBooking has annotation Important with value CanCel Booked Service ------------
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - Name: getDevRoom, Modifiers: public, returnType: Room 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - Name: getTaxes, Modifiers: public, returnType: List 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - Name: getsmth, Modifiers: public, returnType: Object 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main -  Function
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - Name: sumOfTaxes, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main -  ITCompany
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - Name: getInfo, Modifiers: public, returnType: String 
+2026-06-05 14:33:53,059 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: lambda$entertainmentPlanning$0, Modifiers: private static, returnType: void 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  ITCompany
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  String
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  Address
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: setEntertainments, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  List
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: setEquipment, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  List
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: setPartners, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  Set
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: setProjects, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main -  List
+2026-06-05 14:33:53,060 [main] INFO com.solvd.itcompany.Main - Name: setOrderEntertainment, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main -  Order
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - Name: setTesterRoom, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main -  Room
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - Name: setEquipmentOrder, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main -  Order
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - Name: getDirector, Modifiers: public, returnType: Director 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - Name: setBookingService, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main -  BookingService
+2026-06-05 14:33:53,062 [main] INFO com.solvd.itcompany.Main - Name: getBookingService, Modifiers: public, returnType: BookingService 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - Name: setAddresses, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main -  List
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - Name: setEmployees, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main -  Set
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - Name: setProblems, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main -  Map
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - Name: lambda$salaryCalculator$0, Modifiers: private static, returnType: void 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main -  Employee
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - Name: lambda$bookService$0, Modifiers: private static, returnType: boolean 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,063 [main] INFO com.solvd.itcompany.Main -  Team
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - Name: setNumberOfCompanies, Modifiers: public static, returnType: void 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main -  int
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - Name: lambda$updateProject$0, Modifiers: private static, returnType: void 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main -  Project
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - Name: lambda$sumOfTaxes$0, Modifiers: private static, returnType: BigDecimal 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main -  ITCompany
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main -  Integer
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - Name: lambda$updateProject$1, Modifiers: private static, returnType: void 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,064 [main] INFO com.solvd.itcompany.Main -  Project
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main -  String
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main - Name: setTaxes, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main -  List
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main - Name: setDevRoom, Modifiers: public, returnType: void 
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main - MParameters: 
+2026-06-05 14:33:53,065 [main] INFO com.solvd.itcompany.Main -  Room
+2026-06-05 14:33:53,073 [main] INFO com.solvd.itcompany.Main - Company created using reflection
+Company Class Loaded
+Company created by Barbare Gelashvili. This company is a test. It's not a real one
+=== CompanyType enum loaded ===
+=== Rating enum loaded ===
+=== Department enum loaded ===
+=== EmployeeStatus enum loaded ===
+Address System Loaded
+Government max limit: 1000
+New address registered. Total: 1
+New address registered. Total: 2
+New address registered. Total: 3
+=== ProjectStatus enum loaded ===
+Barbare booked service for project - new my project
+resumeTester: department-IT name-Mari age-19 role-Tester status-is not working
+resumeTester: department-IT name-Sam age-20 role-Tester status-is not working
+resumeDeveloper: department-IT name-Samy age-21 role-Developer successful Projects-1
+resumeDeveloper: department-IT name-Samy age-34 role-Developer successful Projects-3
+party - entertainment planned successfully
+party - entertainment already planned
+party2 - entertainment planned successfully
+trying to update project-new my project current status-IN_QUEUE
+Project updated - to in progress
+company-it-company has Tax: 3466.6
+We have 1 company
+Barbare booked project:new my project with team:new my project
+Barbare cancelled project-new my project
+entertainment booking Details: name-party location-Georgia,Tbilisi,street of nowhere
+Entertainment-party got Cancelled
+this is my resource
+my resource closed
+
+ resource closed
+one of the problem we have is - com.solvd.itcompany.company.Problem@542da3bc error-on-line-2 
+one of the problem we have is - com.solvd.itcompany.company.Problem@30a53c33 doesnt-turn-on 
+first map element - com.solvd.itcompany.company.Problem@542da3bc -> error-on-line-2 
+first list element - com.solvd.itcompany.company.Address@7e07db1f
+company name length is-10
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@16d04d3d} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@49ec71f8} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@1d2adfbe} is-1000 lari
+salary of Human{name=Sam, passport=com.solvd.itcompany.passport.Passport@36902638} is-1000 lari
+developer-Samys name is made of 4 letter
+1working employee Samy
+1working employee Samy
+2working employee Samy
+2working employee Samy
+there's 3 Samy, not all works at the moment
+Samy employee
+resumeDeveloper: department-IT name-Samy age-43 role-Developer successful Projects-4
+ITCompany CLASS: 
+FIELDS:
+Name: LOGGER, Type: interface org.apache.logging.log4j.Logger,Modifiers: private static final
+Name: numberOfCompanies, Type: int,Modifiers: private static
+Name: bookingService, Type: class com.solvd.itcompany.company.BookingService,Modifiers: private
+Name: director, Type: class com.solvd.itcompany.record.Director,Modifiers: private
+director has annotation Important with value Director of this company ------------
+Name: addresses, Type: interface java.util.List,Modifiers: private
+Name: employees, Type: interface java.util.Set,Modifiers: private
+Name: entertainments, Type: interface java.util.List,Modifiers: private
+Name: equipment, Type: interface java.util.List,Modifiers: private
+Name: partners, Type: interface java.util.Set,Modifiers: private
+Name: problems, Type: interface java.util.Map,Modifiers: private
+Name: projects, Type: interface java.util.List,Modifiers: private
+Name: taxes, Type: interface java.util.List,Modifiers: private
+Name: devRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: testerRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: orderEntertainment, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+Name: equipmentOrder, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+CONSTRUCTORS
+Name: com.solvd.itcompany.company.ITCompany, Modifiers: public
+CParameters: 
+ String
+ int
+ Director
+ Runnable
+METHODS
+Name: getEmployees, Modifiers: public, returnType: Set 
+MParameters: 
+Name: getEntertainments, Modifiers: public, returnType: List 
+MParameters: 
+Name: getEquipment, Modifiers: public, returnType: List 
+MParameters: 
+Name: getProblems, Modifiers: public, returnType: Map 
+MParameters: 
+Name: bookService, Modifiers: public static, returnType: void 
+MParameters: 
+ Customer
+ ITCompany
+ String
+bookService has annotation Important with value Booking Company Service ------------
+Name: updateProject, Modifiers: public static, returnType: void 
+MParameters: 
+ Project
+ Supplier
+updateProject has annotation Important with value project status updater ------------
+Name: getEmployeeResume, Modifiers: public static, returnType: void 
+MParameters: 
+ Employee
+Name: getAddresses, Modifiers: public, returnType: List 
+MParameters: 
+Name: getPartners, Modifiers: public, returnType: Set 
+MParameters: 
+Name: getNumberOfCompanies, Modifiers: public static, returnType: int 
+MParameters: 
+Name: entertainmentPlanning, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Name: getBookingDetails, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+Name: cancelBooking, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+cancelBooking has annotation Important with value CanCel Booked Service ------------
+Name: getProjects, Modifiers: public, returnType: List 
+MParameters: 
+Name: salaryCalculator, Modifiers: public, returnType: void 
+MParameters: 
+Name: getOrderEntertainment, Modifiers: public, returnType: Order 
+MParameters: 
+Name: getEquipmentOrder, Modifiers: public, returnType: Order 
+MParameters: 
+Name: setDirector, Modifiers: public, returnType: void 
+MParameters: 
+ Director
+Name: getTesterRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: getInfo, Modifiers: public, returnType: String 
+MParameters: 
+Name: getTaxes, Modifiers: public, returnType: List 
+MParameters: 
+Name: sumOfTaxes, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+Name: getsmth, Modifiers: public, returnType: Object 
+MParameters: 
+ Function
+Name: getDevRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: setTaxes, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setDevRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Name: setEntertainments, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setPartners, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: lambda$sumOfTaxes$0, Modifiers: private static, returnType: BigDecimal 
+MParameters: 
+ ITCompany
+ Integer
+Name: setEmployees, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: lambda$bookService$0, Modifiers: private static, returnType: boolean 
+MParameters: 
+ Team
+Name: lambda$updateProject$1, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+ String
+Name: setProblems, Modifiers: public, returnType: void 
+MParameters: 
+ Map
+Name: setOrderEntertainment, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: getBookingService, Modifiers: public, returnType: BookingService 
+MParameters: 
+Name: setAddresses, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setTesterRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Name: lambda$salaryCalculator$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Employee
+Name: setProjects, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setEquipment, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: getDirector, Modifiers: public, returnType: Director 
+MParameters: 
+Name: setBookingService, Modifiers: public, returnType: void 
+MParameters: 
+ BookingService
+Name: setEquipmentOrder, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: lambda$updateProject$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+Name: setNumberOfCompanies, Modifiers: public static, returnType: void 
+MParameters: 
+ int
+Name: lambda$entertainmentPlanning$0, Modifiers: private static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Company created using reflection
+Company Class Loaded
+Company created by Barbare Gelashvili. This company is a test. It's not a real one
+=== CompanyType enum loaded ===
+=== Rating enum loaded ===
+=== Department enum loaded ===
+=== EmployeeStatus enum loaded ===
+Address System Loaded
+Government max limit: 1000
+New address registered. Total: 1
+New address registered. Total: 2
+New address registered. Total: 3
+=== ProjectStatus enum loaded ===
+Barbare booked service for project - new my project
+resumeTester: department-IT name-Mari age-19 role-Tester status-is not working
+resumeTester: department-IT name-Sam age-20 role-Tester status-is not working
+resumeDeveloper: department-IT name-Samy age-21 role-Developer successful Projects-1
+resumeDeveloper: department-IT name-Samy age-34 role-Developer successful Projects-3
+party - entertainment planned successfully
+party - entertainment already planned
+party2 - entertainment planned successfully
+trying to update project-new my project current status-IN_QUEUE
+Project updated - to in progress
+company-it-company has Tax: 3466.6
+We have 1 company
+Barbare booked project:new my project with team:new my project
+Barbare cancelled project-new my project
+entertainment booking Details: name-party location-Georgia,Tbilisi,street of nowhere
+Entertainment-party got Cancelled
+this is my resource
+my resource closed
+
+ resource closed
+one of the problem we have is - com.solvd.itcompany.company.Problem@542da3bc error-on-line-2 
+one of the problem we have is - com.solvd.itcompany.company.Problem@30a53c33 doesnt-turn-on 
+first map element - com.solvd.itcompany.company.Problem@542da3bc -> error-on-line-2 
+first list element - com.solvd.itcompany.company.Address@7e07db1f
+company name length is-10
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@16d04d3d} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@49ec71f8} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@1d2adfbe} is-1000 lari
+salary of Human{name=Sam, passport=com.solvd.itcompany.passport.Passport@36902638} is-1000 lari
+developer-Samys name is made of 4 letter
+1working employee Samy
+1working employee Samy
+2working employee Samy
+2working employee Samy
+there's 3 Samy, not all works at the moment
+Samy employee
+resumeDeveloper: department-IT name-Samy age-43 role-Developer successful Projects-4
+ITCompany CLASS: 
+FIELDS:
+Name: LOGGER, Type: interface org.apache.logging.log4j.Logger,Modifiers: private static final
+Name: numberOfCompanies, Type: int,Modifiers: private static
+Name: bookingService, Type: class com.solvd.itcompany.company.BookingService,Modifiers: private
+Name: director, Type: class com.solvd.itcompany.record.Director,Modifiers: private
+director has annotation Important with value Director of this company ------------
+Name: addresses, Type: interface java.util.List,Modifiers: private
+Name: employees, Type: interface java.util.Set,Modifiers: private
+Name: entertainments, Type: interface java.util.List,Modifiers: private
+Name: equipment, Type: interface java.util.List,Modifiers: private
+Name: partners, Type: interface java.util.Set,Modifiers: private
+Name: problems, Type: interface java.util.Map,Modifiers: private
+Name: projects, Type: interface java.util.List,Modifiers: private
+Name: taxes, Type: interface java.util.List,Modifiers: private
+Name: devRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: testerRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: orderEntertainment, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+Name: equipmentOrder, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+CONSTRUCTORS
+Name: com.solvd.itcompany.company.ITCompany, Modifiers: public
+CParameters: 
+ String
+ int
+ Director
+ Runnable
+METHODS
+Name: getsmth, Modifiers: public, returnType: Object 
+MParameters: 
+ Function
+Name: getDevRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: sumOfTaxes, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+Name: getTaxes, Modifiers: public, returnType: List 
+MParameters: 
+Name: getTesterRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: setDirector, Modifiers: public, returnType: void 
+MParameters: 
+ Director
+Name: updateProject, Modifiers: public static, returnType: void 
+MParameters: 
+ Project
+ Supplier
+updateProject has annotation Important with value project status updater ------------
+Name: cancelBooking, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+cancelBooking has annotation Important with value CanCel Booked Service ------------
+Name: getProjects, Modifiers: public, returnType: List 
+MParameters: 
+Name: getBookingDetails, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+Name: getAddresses, Modifiers: public, returnType: List 
+MParameters: 
+Name: getOrderEntertainment, Modifiers: public, returnType: Order 
+MParameters: 
+Name: salaryCalculator, Modifiers: public, returnType: void 
+MParameters: 
+Name: getProblems, Modifiers: public, returnType: Map 
+MParameters: 
+Name: getEquipmentOrder, Modifiers: public, returnType: Order 
+MParameters: 
+Name: getEmployeeResume, Modifiers: public static, returnType: void 
+MParameters: 
+ Employee
+Name: entertainmentPlanning, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Name: getEntertainments, Modifiers: public, returnType: List 
+MParameters: 
+Name: getEmployees, Modifiers: public, returnType: Set 
+MParameters: 
+Name: getNumberOfCompanies, Modifiers: public static, returnType: int 
+MParameters: 
+Name: getPartners, Modifiers: public, returnType: Set 
+MParameters: 
+Name: bookService, Modifiers: public static, returnType: void 
+MParameters: 
+ Customer
+ ITCompany
+ String
+bookService has annotation Important with value Booking Company Service ------------
+Name: getEquipment, Modifiers: public, returnType: List 
+MParameters: 
+Name: getInfo, Modifiers: public, returnType: String 
+MParameters: 
+Name: lambda$entertainmentPlanning$0, Modifiers: private static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Name: getBookingService, Modifiers: public, returnType: BookingService 
+MParameters: 
+Name: setEmployees, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: setPartners, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: setProjects, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: lambda$updateProject$1, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+ String
+Name: lambda$updateProject$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+Name: setBookingService, Modifiers: public, returnType: void 
+MParameters: 
+ BookingService
+Name: setAddresses, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setProblems, Modifiers: public, returnType: void 
+MParameters: 
+ Map
+Name: lambda$salaryCalculator$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Employee
+Name: setEntertainments, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: lambda$sumOfTaxes$0, Modifiers: private static, returnType: BigDecimal 
+MParameters: 
+ ITCompany
+ Integer
+Name: setEquipment, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setNumberOfCompanies, Modifiers: public static, returnType: void 
+MParameters: 
+ int
+Name: setTesterRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Name: setEquipmentOrder, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: getDirector, Modifiers: public, returnType: Director 
+MParameters: 
+Name: setOrderEntertainment, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: lambda$bookService$0, Modifiers: private static, returnType: boolean 
+MParameters: 
+ Team
+Name: setTaxes, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setDevRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Company created using reflection
+Company Class Loaded
+Company created by Barbare Gelashvili. This company is a test. It's not a real one
+=== CompanyType enum loaded ===
+=== Rating enum loaded ===
+=== Department enum loaded ===
+=== EmployeeStatus enum loaded ===
+Address System Loaded
+Government max limit: 1000
+New address registered. Total: 1
+New address registered. Total: 2
+New address registered. Total: 3
+=== ProjectStatus enum loaded ===
+Barbare booked service for project - new my project
+resumeTester: department-IT name-Mari age-19 role-Tester status-is not working
+resumeTester: department-IT name-Sam age-20 role-Tester status-is working
+resumeDeveloper: department-IT name-Samy age-21 role-Developer successful Projects-1
+resumeDeveloper: department-IT name-Samy age-34 role-Developer successful Projects-3
+party - entertainment planned successfully
+party - entertainment already planned
+party2 - entertainment planned successfully
+trying to update project-new my project current status-IN_QUEUE
+Project updated - to in progress
+company-it-company has Tax: 3466.6
+We have 1 company
+Barbare booked project:new my project with team:new my project
+Barbare cancelled project-new my project
+entertainment booking Details: name-party location-Georgia,Tbilisi,street of nowhere
+Entertainment-party got Cancelled
+this is my resource
+my resource closed
+
+ resource closed
+one of the problem we have is - com.solvd.itcompany.company.Problem@542da3bc error-on-line-2 
+one of the problem we have is - com.solvd.itcompany.company.Problem@30a53c33 doesnt-turn-on 
+first map element - com.solvd.itcompany.company.Problem@542da3bc -> error-on-line-2 
+first list element - com.solvd.itcompany.company.Address@36bc55de
+company name length is-10
+salary of Human{name=Sam, passport=com.solvd.itcompany.passport.Passport@1d2adfbe} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@36902638} is-2000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@223d2c72} is-1000 lari
+salary of Human{name=Samy, passport=com.solvd.itcompany.passport.Passport@8f4ea7c} is-1000 lari
+developer-Samys name is made of 4 letter
+1working employee Sam
+1working employee Samy
+2working employee Samy
+2working employee Sam
+there's 3 Samy, not all works at the moment
+Samy employee
+resumeDeveloper: department-IT name-Samy age-21 role-Developer successful Projects-1
+ITCompany CLASS: 
+FIELDS:
+Name: LOGGER, Type: interface org.apache.logging.log4j.Logger,Modifiers: private static final
+Name: numberOfCompanies, Type: int,Modifiers: private static
+Name: bookingService, Type: class com.solvd.itcompany.company.BookingService,Modifiers: private
+Name: director, Type: class com.solvd.itcompany.record.Director,Modifiers: private
+director has annotation Important with value Director of this company ------------
+Name: addresses, Type: interface java.util.List,Modifiers: private
+Name: employees, Type: interface java.util.Set,Modifiers: private
+Name: entertainments, Type: interface java.util.List,Modifiers: private
+Name: equipment, Type: interface java.util.List,Modifiers: private
+Name: partners, Type: interface java.util.Set,Modifiers: private
+Name: problems, Type: interface java.util.Map,Modifiers: private
+Name: projects, Type: interface java.util.List,Modifiers: private
+Name: taxes, Type: interface java.util.List,Modifiers: private
+Name: devRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: testerRoom, Type: class com.solvd.itcompany.generics.Room,Modifiers: private
+Name: orderEntertainment, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+Name: equipmentOrder, Type: class com.solvd.itcompany.generics.Order,Modifiers: private
+CONSTRUCTORS
+Name: com.solvd.itcompany.company.ITCompany, Modifiers: public
+CParameters: 
+ String
+ int
+ Director
+ Runnable
+METHODS
+Name: getInfo, Modifiers: public, returnType: String 
+MParameters: 
+Name: getEmployees, Modifiers: public, returnType: Set 
+MParameters: 
+Name: salaryCalculator, Modifiers: public, returnType: void 
+MParameters: 
+Name: getEntertainments, Modifiers: public, returnType: List 
+MParameters: 
+Name: getProblems, Modifiers: public, returnType: Map 
+MParameters: 
+Name: getOrderEntertainment, Modifiers: public, returnType: Order 
+MParameters: 
+Name: getProjects, Modifiers: public, returnType: List 
+MParameters: 
+Name: getAddresses, Modifiers: public, returnType: List 
+MParameters: 
+Name: getEquipmentOrder, Modifiers: public, returnType: Order 
+MParameters: 
+Name: getEmployeeResume, Modifiers: public static, returnType: void 
+MParameters: 
+ Employee
+Name: getPartners, Modifiers: public, returnType: Set 
+MParameters: 
+Name: getNumberOfCompanies, Modifiers: public static, returnType: int 
+MParameters: 
+Name: getTesterRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: bookService, Modifiers: public static, returnType: void 
+MParameters: 
+ Customer
+ ITCompany
+ String
+bookService has annotation Important with value Booking Company Service ------------
+Name: updateProject, Modifiers: public static, returnType: void 
+MParameters: 
+ Project
+ Supplier
+updateProject has annotation Important with value project status updater ------------
+Name: entertainmentPlanning, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Name: getBookingDetails, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+Name: cancelBooking, Modifiers: public, returnType: void 
+MParameters: 
+ Trackable
+cancelBooking has annotation Important with value CanCel Booked Service ------------
+Name: setDirector, Modifiers: public, returnType: void 
+MParameters: 
+ Director
+Name: getEquipment, Modifiers: public, returnType: List 
+MParameters: 
+Name: getsmth, Modifiers: public, returnType: Object 
+MParameters: 
+ Function
+Name: getTaxes, Modifiers: public, returnType: List 
+MParameters: 
+Name: sumOfTaxes, Modifiers: public static, returnType: void 
+MParameters: 
+ ITCompany
+Name: getDevRoom, Modifiers: public, returnType: Room 
+MParameters: 
+Name: setTaxes, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setDevRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Name: lambda$entertainmentPlanning$0, Modifiers: private static, returnType: void 
+MParameters: 
+ ITCompany
+ String
+ Address
+Name: setEntertainments, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: getBookingService, Modifiers: public, returnType: BookingService 
+MParameters: 
+Name: setProblems, Modifiers: public, returnType: void 
+MParameters: 
+ Map
+Name: lambda$updateProject$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+Name: setEmployees, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: setEquipment, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setAddresses, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: setPartners, Modifiers: public, returnType: void 
+MParameters: 
+ Set
+Name: setOrderEntertainment, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: setEquipmentOrder, Modifiers: public, returnType: void 
+MParameters: 
+ Order
+Name: getDirector, Modifiers: public, returnType: Director 
+MParameters: 
+Name: setProjects, Modifiers: public, returnType: void 
+MParameters: 
+ List
+Name: lambda$salaryCalculator$0, Modifiers: private static, returnType: void 
+MParameters: 
+ Employee
+Name: lambda$sumOfTaxes$0, Modifiers: private static, returnType: BigDecimal 
+MParameters: 
+ ITCompany
+ Integer
+Name: lambda$updateProject$1, Modifiers: private static, returnType: void 
+MParameters: 
+ Project
+ String
+Name: setNumberOfCompanies, Modifiers: public static, returnType: void 
+MParameters: 
+ int
+Name: setTesterRoom, Modifiers: public, returnType: void 
+MParameters: 
+ Room
+Name: setBookingService, Modifiers: public, returnType: void 
+MParameters: 
+ BookingService
+Name: lambda$bookService$0, Modifiers: private static, returnType: boolean 
+MParameters: 
+ Team
+Company created using reflection
+Unique words counted successfully

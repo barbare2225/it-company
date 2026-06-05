@@ -14,6 +14,8 @@ import com.solvd.itcompany.superclasses.Equipment;
 import com.solvd.itcompany.superclasses.Partner;
 import com.solvd.itcompany.superclasses.company.Company;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.function.Function;
@@ -21,11 +23,13 @@ import java.util.function.Supplier;
 
 public class ITCompany extends Company {
 
+    private static final Logger LOGGER = LogManager.getLogger(ITCompany.class);
+
     private static int numberOfCompanies = 0;
 
     // static field
     static {
-        System.out.println("Company Class Loaded");
+        LOGGER.info("Company Class Loaded");
     }
 
     private BookingService bookingService = new BookingService();
@@ -77,7 +81,7 @@ public class ITCompany extends Company {
     @Important(value = "project status updater")
     public static void updateProject(Project project, Supplier<String> supplier) {
         ITCompanyFunctions.updateProject(project, supplier,
-                (e) -> System.out.println("trying to update project-" + e.getName() + " current status-" + e.getStatus()),
+                (e) -> LOGGER.info("trying to update project-{} current status-{}" ,e.getName(), e.getStatus()),
                 (project2, status2) -> project2.setStatus(ProjectStatus.getProjectStatus(status2)));
     }
 
@@ -107,7 +111,7 @@ public class ITCompany extends Company {
 
     public void salaryCalculator() {
         ITCompanyFunctions.salaryCalculator(employees, (employee) ->
-                System.out.println("salary of " + employee + " is-" + employee.getRating().getRate() * employee.getStatus().getBonus() * 200 + " lari"));
+                LOGGER.info("salary of {} is-{} lari", employee , employee.getRating().getRate() * employee.getStatus().getBonus() * 200 ));
     }
 
     @Important(value = "CanCel Booked Service")

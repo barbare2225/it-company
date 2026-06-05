@@ -1,13 +1,19 @@
 package com.solvd.itcompany.enums;
 
+import com.solvd.itcompany.company.employeeRoles.Tester;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum ProjectStatus {
 
     IN_PROGRESS("in progress"),
     IN_QUEUE("in queue"),
     DONE("done");
 
+    private static final Logger LOGGER = LogManager.getLogger(ProjectStatus.class);
+
     static {
-        System.out.println("=== ProjectStatus enum loaded ===");
+        LOGGER.info("=== ProjectStatus enum loaded ===");
     }
 
     private final String status;

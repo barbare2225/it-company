@@ -2,10 +2,14 @@ package com.solvd.itcompany.company.employeeRoles;
 
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Recruiter extends Employee {
+
+    private static final Logger LOGGER = LogManager.getLogger(Recruiter.class);
 
     public Recruiter(String name, int age) {
         super(name, age, "Recruiter", Department.HR);
@@ -25,6 +29,6 @@ public class Recruiter extends Employee {
 
     @Override
     public void resume() {
-        System.out.println("resumeRecruiter:  department-" + super.getDepartment() + " name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " status-" + super.getStatus().getValue());
+        LOGGER.info("resumeRecruiter:  department-{} name-{} age-{} role-{} status-{}" , super.getDepartment() ,super.getName() ,super.getAge() , super.getRole() , super.getStatus().getValue());
     }
 }
