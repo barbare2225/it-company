@@ -1,12 +1,18 @@
 package com.solvd.itcompany.enums;
 
+import com.solvd.itcompany.company.employeeRoles.Tester;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum EmployeeStatus {
 
     IS_WORKING("is working", true, 2),
     IS_NOT_WORKING("is not working", false, 1);
 
+    private static final Logger LOGGER = LogManager.getLogger(EmployeeStatus.class);
+
     static {
-        System.out.println("=== EmployeeStatus enum loaded ===");
+        LOGGER.info("=== EmployeeStatus enum loaded ===");
     }
 
     private final String value;

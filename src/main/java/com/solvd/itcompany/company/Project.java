@@ -3,8 +3,12 @@ package com.solvd.itcompany.company;
 import com.solvd.itcompany.enums.ProjectStatus;
 import com.solvd.itcompany.interfaces.Solvable;
 import com.solvd.itcompany.interfaces.Trackable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Project implements Solvable, Trackable {
+
+    private static final Logger LOGGER = LogManager.getLogger(Project.class);
 
     private String name;
     private ProjectStatus status;
@@ -20,18 +24,17 @@ public class Project implements Solvable, Trackable {
 
     @Override
     public void cancel() {
-        System.out.println(customer.getName() + " cancelled project-" + team.getName());
+        LOGGER.info( "{} cancelled project-{}" ,customer.getName(), team.getName());
     }
 
     @Override
     public void getDetails() {
-        System.out.println(customer.getName() + " booked project:" + this.getName() +
-                " with team:" + this.getTeam().getName());
+        LOGGER.info("{} booked project:{} with team:{}" ,customer.getName() ,this.getName() ,this.getTeam().getName());
     }
 
     @Override
     public void solve() {
-        System.out.println("Project can be solved");
+        LOGGER.info("Project can be solved");
     }
 
     public String getName() {

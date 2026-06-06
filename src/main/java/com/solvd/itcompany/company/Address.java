@@ -1,8 +1,13 @@
 package com.solvd.itcompany.company;
 
+import com.solvd.itcompany.Main;
 import com.solvd.itcompany.interfaces.IAddress;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class Address implements IAddress {
+
+    private static final Logger LOGGER = LogManager.getLogger(Address.class);
 
     private static final int maxAddresses = 1000; // government limit
 
@@ -10,8 +15,8 @@ public final class Address implements IAddress {
 
     // static block
     static {
-        System.out.println("Address System Loaded");
-        System.out.println("Government max limit: " + maxAddresses);
+        LOGGER.info("Address System Loaded");
+        LOGGER.info("Government max limit: {}", maxAddresses);
     }
 
     private String street;
@@ -21,11 +26,11 @@ public final class Address implements IAddress {
     // regular block
     {
         if (totalAddresses >= maxAddresses) {
-            System.out.println("limit reached (overflow)");
+            LOGGER.info("limit reached (overflow)");
             totalAddresses++;
         } else {
             totalAddresses++;
-            System.out.println("New address registered. Total: " + totalAddresses);
+            LOGGER.info("New address registered. Total: {}", totalAddresses);
         }
     }
 

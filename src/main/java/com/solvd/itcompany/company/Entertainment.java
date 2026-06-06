@@ -1,8 +1,12 @@
 package com.solvd.itcompany.company;
 
 import com.solvd.itcompany.interfaces.Trackable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Entertainment implements Trackable {
+
+    private static final Logger LOGGER = LogManager.getLogger(Entertainment.class);
 
     private String name;
     private Address address;
@@ -14,12 +18,12 @@ public class Entertainment implements Trackable {
 
     @Override
     public void cancel() {
-        System.out.println("Enterteinment-" + name + " got Cancelled");
+        LOGGER.info("Entertainment-{} got Cancelled", name );
     }
 
     @Override
     public void getDetails() {
-        System.out.println("entertainment booking Details: name-" + name + " location-" + address.getCountry() + "," + address.getCity() + "," + address.getStreet());
+        LOGGER.info("entertainment booking Details: name-{} location-{},{},{}",name , address.getCountry(), address.getCity(),address.getStreet());
     }
 
     // getters and setters

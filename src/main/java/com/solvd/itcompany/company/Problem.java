@@ -1,10 +1,14 @@
 package com.solvd.itcompany.company;
 
 import com.solvd.itcompany.interfaces.Solvable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Problem implements Solvable {
+
+    private static final Logger LOGGER = LogManager.getLogger(Problem.class);
 
     private String name;
     private String location;
@@ -16,7 +20,7 @@ public class Problem implements Solvable {
 
     @Override
     public void solve() {
-        System.out.println("Problem solved");
+        LOGGER.info("Problem solved");
     }
 
     @Override

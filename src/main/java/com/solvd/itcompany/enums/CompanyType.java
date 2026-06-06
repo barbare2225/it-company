@@ -1,5 +1,9 @@
 package com.solvd.itcompany.enums;
 
+import com.solvd.itcompany.company.employeeRoles.Tester;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum CompanyType {
 
     IT("it company"),
@@ -7,8 +11,10 @@ public enum CompanyType {
     PRIVATE("private company"),
     OTHER("this type is not in types category");
 
+    private static final Logger LOGGER = LogManager.getLogger(CompanyType.class);
+
     static {
-        System.out.println("=== CompanyType enum loaded ===");
+        LOGGER.info("=== CompanyType enum loaded ===");
     }
 
     private final String value;

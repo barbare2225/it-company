@@ -2,10 +2,14 @@ package com.solvd.itcompany.company.employeeRoles;
 
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Developer extends Employee {
+
+    private static final Logger LOGGER = LogManager.getLogger(Developer.class);
 
     private final int succesfullProjects;
 
@@ -28,10 +32,10 @@ public class Developer extends Employee {
 
     @Override
     public void resume() {
-        System.out.println("resumeDeveloper: department-" + super.getDepartment() + " name-" + super.getName() + " age-" + super.getAge() + " role-" + super.getRole() + " succesfullProjects-" + this.succesfullProjects);
+        LOGGER.info("resumeDeveloper: department-{} name-{} age-{} role-{} successful Projects-{}", super.getDepartment() ,super.getName(),super.getAge() , super.getRole() ,this.getSuccessfulProjects());
     }
 
-    public int getSuccesfullProjects() {
+    public int getSuccessfulProjects() {
         return succesfullProjects;
     }
 }

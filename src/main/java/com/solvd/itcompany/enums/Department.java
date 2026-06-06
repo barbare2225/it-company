@@ -1,5 +1,9 @@
 package com.solvd.itcompany.enums;
 
+import com.solvd.itcompany.company.employeeRoles.Tester;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum Department {
 
     HR("human resources", 1),
@@ -7,8 +11,10 @@ public enum Department {
     FINANCE("finance department", 3),
     SECURITY("security department", 4);
 
+    private static final Logger LOGGER = LogManager.getLogger(Department.class);
+
     static {
-        System.out.println("=== Department enum loaded ===");
+        LOGGER.info("=== Department enum loaded ===");
     }
 
     private final String value;

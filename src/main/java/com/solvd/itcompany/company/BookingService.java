@@ -3,10 +3,14 @@ package com.solvd.itcompany.company;
 import com.solvd.itcompany.exceptions.BookingException;
 import com.solvd.itcompany.interfaces.Trackable;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.function.Predicate;
 
 public class BookingService {
+
+    private static final Logger LOGGER = LogManager.getLogger(BookingService.class);
 
     public static void bookService(Customer customer, ITCompany company, String projectName, Predicate<Team> teamIsFull) throws BookingException {
         Team team = ITCompanyFunctions.teamDistribution(company, projectName);
@@ -14,7 +18,7 @@ public class BookingService {
             Project project = new Project(projectName, customer, team);
             company.getProjects().add(project);
             customer.addProject(project);
-            System.out.println(customer.getName() + " booked service for project - " + projectName);
+            LOGGER.info( "{} booked service for project - {}" ,customer.getName(), projectName);
         } else {
             throw new BookingException("Booking failed");
         }

@@ -1,6 +1,7 @@
 package com.solvd.itcompany.superclasses.employee;
 
 import com.solvd.itcompany.company.Project;
+import com.solvd.itcompany.company.employeeRoles.Tester;
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.enums.EmployeeStatus;
 import com.solvd.itcompany.enums.Rating;
@@ -8,10 +9,14 @@ import com.solvd.itcompany.exceptions.InvalidSalaryException;
 import com.solvd.itcompany.interfaces.Payable;
 import com.solvd.itcompany.interfaces.Workable;
 import com.solvd.itcompany.superclasses.Human;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Employee extends Human implements Payable, Workable {
+
+    private static final Logger LOGGER = LogManager.getLogger(Employee.class);
 
     private String role;
     private EmployeeStatus status;
@@ -43,28 +48,28 @@ public class Employee extends Human implements Payable, Workable {
         if (amount < 2000) {
             throw new InvalidSalaryException("Salary amount must be greater than 2000, not-" + amount);
         } else {
-            System.out.println("Employee received a salary of " + amount);
+            LOGGER.info("Employee received a salary of {}", amount);
         }
     }
 
     @Override
     public void startWork() {
-        System.out.println("Employee is starting work");
+        LOGGER.info("Employee is starting work");
     }
 
     @Override
     public void stopWork() {
-        System.out.println("Employee is stopping working");
+        LOGGER.info("Employee is stopping working");
     }
 
     @Override
     public void submitTask(Project project) {
-        System.out.println("Employee submitting project:" + project.getName());
+        LOGGER.info("Employee submitting project:{}",project.getName());
     }
 
     @Override
     public void resume() {
-        System.out.println("name is " + super.getName() + " age is-" + super.getAge() + "Role is " + this.role);
+        LOGGER.info("name is {} age is-{} Role is -{}", super.getName() , super.getAge() , this.role);
     }
 
     // getters and setters
