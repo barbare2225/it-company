@@ -46,7 +46,7 @@ class ITCompanyFunctions {
 
         if (!alreadyPlanned) {
             consumer.accept(company, name, address); // adds new entertainment
-            LOGGER.info("{} - entertainment planned successfully",name );
+            LOGGER.info("{} - entertainment planned successfully", name);
         } else {
             throw new DuplicateException(name + " - entertainment already planned");
         }

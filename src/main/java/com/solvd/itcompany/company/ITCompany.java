@@ -81,7 +81,7 @@ public class ITCompany extends Company {
     @Important(value = "project status updater")
     public static void updateProject(Project project, Supplier<String> supplier) {
         ITCompanyFunctions.updateProject(project, supplier,
-                (e) -> LOGGER.info("trying to update project-{} current status-{}" ,e.getName(), e.getStatus()),
+                (e) -> LOGGER.info("trying to update project-{} current status-{}", e.getName(), e.getStatus()),
                 (project2, status2) -> project2.setStatus(ProjectStatus.getProjectStatus(status2)));
     }
 
@@ -111,7 +111,7 @@ public class ITCompany extends Company {
 
     public void salaryCalculator() {
         ITCompanyFunctions.salaryCalculator(employees, (employee) ->
-                LOGGER.info("salary of {} is-{} lari", employee , employee.getRating().getRate() * employee.getStatus().getBonus() * 200 ));
+                LOGGER.info("salary of {} is-{} lari", employee, employee.getRating().getRate() * employee.getStatus().getBonus() * 200));
     }
 
     @Important(value = "CanCel Booked Service")

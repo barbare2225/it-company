@@ -1,7 +1,6 @@
 package com.solvd.itcompany.superclasses.employee;
 
 import com.solvd.itcompany.company.Project;
-import com.solvd.itcompany.company.employeeRoles.Tester;
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.enums.EmployeeStatus;
 import com.solvd.itcompany.enums.Rating;
@@ -64,12 +63,12 @@ public class Employee extends Human implements Payable, Workable {
 
     @Override
     public void submitTask(Project project) {
-        LOGGER.info("Employee submitting project:{}",project.getName());
+        LOGGER.info("Employee submitting project:{}", project.getName());
     }
 
     @Override
     public void resume() {
-        LOGGER.info("name is {} age is-{} Role is -{}", super.getName() , super.getAge() , this.role);
+        LOGGER.info("name is {} age is-{} Role is -{}", super.getName(), super.getAge(), this.role);
     }
 
     // getters and setters

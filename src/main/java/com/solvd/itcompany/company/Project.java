@@ -24,12 +24,12 @@ public class Project implements Solvable, Trackable {
 
     @Override
     public void cancel() {
-        LOGGER.info( "{} cancelled project-{}" ,customer.getName(), team.getName());
+        LOGGER.info("{} cancelled project-{}", customer.getName(), team.getName());
     }
 
     @Override
     public void getDetails() {
-        LOGGER.info("{} booked project:{} with team:{}" ,customer.getName() ,this.getName() ,this.getTeam().getName());
+        LOGGER.info("{} booked project:{} with team:{}", customer.getName(), this.getName(), this.getTeam().getName());
     }
 
     @Override

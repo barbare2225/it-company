@@ -1,6 +1,5 @@
 package com.solvd.itcompany.company;
 
-import com.solvd.itcompany.Main;
 import com.solvd.itcompany.interfaces.IAddress;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

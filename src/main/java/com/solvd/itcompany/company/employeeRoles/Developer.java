@@ -32,7 +32,7 @@ public class Developer extends Employee {
 
     @Override
     public void resume() {
-        LOGGER.info("resumeDeveloper: department-{} name-{} age-{} role-{} successful Projects-{}", super.getDepartment() ,super.getName(),super.getAge() , super.getRole() ,this.getSuccessfulProjects());
+        LOGGER.info("resumeDeveloper: department-{} name-{} age-{} role-{} successful Projects-{}", super.getDepartment(), super.getName(), super.getAge(), super.getRole(), this.getSuccessfulProjects());
     }
 
     public int getSuccessfulProjects() {

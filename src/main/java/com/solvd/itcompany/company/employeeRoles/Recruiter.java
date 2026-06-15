@@ -29,6 +29,6 @@ public class Recruiter extends Employee {
 
     @Override
     public void resume() {
-        LOGGER.info("resumeRecruiter:  department-{} name-{} age-{} role-{} status-{}" , super.getDepartment() ,super.getName() ,super.getAge() , super.getRole() , super.getStatus().getValue());
+        LOGGER.info("resumeRecruiter:  department-{} name-{} age-{} role-{} status-{}", super.getDepartment(), super.getName(), super.getAge(), super.getRole(), super.getStatus().getValue());
     }
 }

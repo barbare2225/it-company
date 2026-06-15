@@ -18,7 +18,7 @@ public class BookingService {
             Project project = new Project(projectName, customer, team);
             company.getProjects().add(project);
             customer.addProject(project);
-            LOGGER.info( "{} booked service for project - {}" ,customer.getName(), projectName);
+            LOGGER.info("{} booked service for project - {}", customer.getName(), projectName);
         } else {
             throw new BookingException("Booking failed");
         }
