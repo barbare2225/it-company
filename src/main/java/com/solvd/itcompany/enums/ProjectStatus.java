@@ -1,6 +1,5 @@
 package com.solvd.itcompany.enums;
 
-import com.solvd.itcompany.company.employeeRoles.Tester;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

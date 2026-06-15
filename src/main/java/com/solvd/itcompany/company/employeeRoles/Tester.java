@@ -29,7 +29,7 @@ public class Tester extends Employee {
 
     @Override
     public void resume() {
-        LOGGER.info("resumeTester: department-{} name-{} age-{} role-{} status-{}" ,super.getDepartment() , super.getName() , super.getAge(), super.getRole() , super.getStatus().getValue());
+        LOGGER.info("resumeTester: department-{} name-{} age-{} role-{} status-{}", super.getDepartment(), super.getName(), super.getAge(), super.getRole(), super.getStatus().getValue());
     }
 
 }

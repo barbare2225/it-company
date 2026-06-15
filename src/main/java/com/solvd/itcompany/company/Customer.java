@@ -16,7 +16,7 @@ public class Customer extends Human {
 
     @Override
     public void resume() {
-        LOGGER.info("name is {} age-{} I'm a customer", super.getName() ,super.getAge());
+        LOGGER.info("name is {} age-{} I'm a customer", super.getName(), super.getAge());
     }
 
     // functions

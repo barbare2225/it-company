@@ -18,12 +18,12 @@ public class Entertainment implements Trackable {
 
     @Override
     public void cancel() {
-        LOGGER.info("Entertainment-{} got Cancelled", name );
+        LOGGER.info("Entertainment-{} got Cancelled", name);
     }
 
     @Override
     public void getDetails() {
-        LOGGER.info("entertainment booking Details: name-{} location-{},{},{}",name , address.getCountry(), address.getCity(),address.getStreet());
+        LOGGER.info("entertainment booking Details: name-{} location-{},{},{}", name, address.getCountry(), address.getCity(), address.getStreet());
     }
 
     // getters and setters

@@ -16,6 +16,8 @@ import com.solvd.itcompany.superclasses.Equipment;
 import com.solvd.itcompany.superclasses.Human;
 import com.solvd.itcompany.superclasses.Partner;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import com.solvd.itcompany.threads.FirstThread;
+import com.solvd.itcompany.threads.connectionpool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,9 +30,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class Main {
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance(5);
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
@@ -181,7 +185,7 @@ public class Main {
 
         // get first list element
         if (!company.getAddresses().isEmpty()) {
-            LOGGER.info("first list element - {}" ,company.getAddresses().get(0));
+            LOGGER.info("first list element - {}", company.getAddresses().get(0));
         }
 
         // generics
@@ -204,12 +208,12 @@ public class Main {
         }
 
         // lambdas
-        LOGGER.info("company name length is-{}",company.getsmth((e) -> e.getName().length()));
+        LOGGER.info("company name length is-{}", company.getsmth((e) -> e.getName().length()));
 
         company.salaryCalculator();
 
         IntegerFunction<Human> func = (human) -> human.getName().length();
-        LOGGER.info("developer-{}s name is made of {} letter", developer1.getName() ,func.function(developer1));
+        LOGGER.info("developer-{}s name is made of {} letter", developer1.getName(), func.function(developer1));
 
         // streams
         Set<Employee> workingEmployees = company.getEmployees().stream()
@@ -218,7 +222,7 @@ public class Main {
                 .collect(Collectors.toSet());
 
         for (Employee employee : workingEmployees) {
-            LOGGER.info("2working employee {}",employee.getName());
+            LOGGER.info("2working employee {}", employee.getName());
         }
 
         boolean samysAreAllWorking = company.getEmployees().stream()
@@ -230,7 +234,7 @@ public class Main {
                 .count();
 
         if (samysAreAllWorking) LOGGER.info("Samy's Are All Working there's {} Samy", samyscount);
-        else LOGGER.info("there's {} Samy, not all works at the moment" ,samyscount);
+        else LOGGER.info("there's {} Samy, not all works at the moment", samyscount);
 
         List<String> addressLinks = company.getAddresses().stream()
                 .map(tmpAddress -> tmpAddress.mapLink())
@@ -259,38 +263,38 @@ public class Main {
             // fields
             LOGGER.info("FIELDS:");
             for (Field field : testCompany.getDeclaredFields()) {
-                LOGGER.info("Name: {}, Type: {},Modifiers: {}" ,field.getName(),field.getType(),Modifier.toString(field.getModifiers()));
+                LOGGER.info("Name: {}, Type: {},Modifiers: {}", field.getName(), field.getType(), Modifier.toString(field.getModifiers()));
 
                 // annotation handling
                 if (field.isAnnotationPresent(Important.class)) {
                     Important important = field.getAnnotation(Important.class);
-                    LOGGER.info("{} has annotation Important with value {} ------------",field.getName(), important.value());
+                    LOGGER.info("{} has annotation Important with value {} ------------", field.getName(), important.value());
                 }
             }
 
             // constructors
             LOGGER.info("CONSTRUCTORS");
             for (Constructor<?> constructor : testCompany.getDeclaredConstructors()) {
-                LOGGER.info("Name: {}, Modifiers: {}", constructor.getName(),Modifier.toString(constructor.getModifiers()));
+                LOGGER.info("Name: {}, Modifiers: {}", constructor.getName(), Modifier.toString(constructor.getModifiers()));
                 LOGGER.info("CParameters: ");
                 for (Class<?> param : constructor.getParameterTypes()) {
-                    LOGGER.info( " {}",param.getSimpleName());
+                    LOGGER.info(" {}", param.getSimpleName());
                 }
             }
 
             // methods
             LOGGER.info("METHODS");
             for (Method method : testCompany.getDeclaredMethods()) {
-                LOGGER.info("Name: {}, Modifiers: {}, returnType: {} ", method.getName(),Modifier.toString(method.getModifiers()),method.getReturnType().getSimpleName());
+                LOGGER.info("Name: {}, Modifiers: {}, returnType: {} ", method.getName(), Modifier.toString(method.getModifiers()), method.getReturnType().getSimpleName());
                 LOGGER.info("MParameters: ");
                 for (Class<?> param : method.getParameterTypes()) {
-                    LOGGER.info(" {}",param.getSimpleName());
+                    LOGGER.info(" {}", param.getSimpleName());
                 }
 
                 // annotation handling
                 if (method.isAnnotationPresent(Important.class)) {
                     Important important = method.getAnnotation(Important.class);
-                    LOGGER.info("{} has annotation Important with value {} ------------",method.getName(), important.value());
+                    LOGGER.info("{} has annotation Important with value {} ------------", method.getName(), important.value());
                 }
             }
 
@@ -315,6 +319,83 @@ public class Main {
         } catch (Exception e) {
             LOGGER.error("Failed to count unique words", e);
         }
+
+        // threads
+        ExecutorService executor = Executors.newFixedThreadPool(7);
+
+        for (int i = 0; i < 7; i++) {
+            executor.submit(new FirstThread("Th" + i));
+        }
+
+        executor.shutdown();
+
+        try {
+            while (!executor.awaitTermination(1, TimeUnit.MINUTES)) {
+                LOGGER.info("Waiting for all threads to finish...");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // CompletableFutures
+
+        ExecutorService executorForFutures = Executors.newFixedThreadPool(5);
+
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(2500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return "Hi";
+        }, executorForFutures).thenApply(r -> "decrypted " + r);
+
+        CompletableFuture<Void> future2 = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return "Hi";
+        }, executorForFutures).thenAccept(r -> LOGGER.info(" f2: {}", r));
+
+        CompletableFuture<Integer> future3 =
+                CompletableFuture.supplyAsync(() -> 10, executorForFutures)
+                        .thenCombine(
+                                CompletableFuture.supplyAsync(() -> 20, executorForFutures),
+                                Integer::sum
+                        );
+
+
+        CompletableFuture<Void> future4 =
+                CompletableFuture.supplyAsync(() -> {
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            return "Hi";
+                        }, executorForFutures)
+                        .thenAccept(r -> LOGGER.info(" f4: {} world", r));
+
+        CompletionStage<String> future5 =
+                CompletableFuture.supplyAsync(() -> "extra task", executorForFutures)
+                        .thenApply(r -> r + " done");
+
+        CompletableFuture<String> all =
+                CompletableFuture.allOf(future1, future2, future3, future4, future5.toCompletableFuture()).thenApply(v ->
+                        future3.join() +
+                                " | " +
+                                future1.join() +
+                                " | " +
+                                future5.toCompletableFuture().join()
+                );
+
+        LOGGER.info("Futures: {}", all.join());
+
+        LOGGER.info("All tasks finished.");
+
+        executorForFutures.shutdown();
     }
 
 }
