@@ -1,9 +1,12 @@
 package com.solvd.itcompany.company;
 
 import com.solvd.itcompany.interfaces.IAddress;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public final class Address implements IAddress {
 
     private static final Logger LOGGER = LogManager.getLogger(Address.class);
@@ -19,7 +22,7 @@ public final class Address implements IAddress {
     }
 
     private String street;
-    private String City;
+    private String city;
     private String country;
 
     // regular block
@@ -35,8 +38,11 @@ public final class Address implements IAddress {
 
     public Address(String street, String city, String country) {
         this.street = street;
-        this.City = city;
+        this.city = city;
         this.country = country;
+    }
+
+    public Address() {
     }
 
     public static int getRemaining() {
@@ -59,7 +65,7 @@ public final class Address implements IAddress {
     @Override
     public void changeAddress(String street, String country, String city) {
         this.street = street;
-        this.City = city;
+        this.city = city;
         this.country = country;
     }
 
@@ -76,11 +82,11 @@ public final class Address implements IAddress {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getCountry() {

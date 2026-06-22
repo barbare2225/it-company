@@ -17,7 +17,6 @@ public class BookingService {
         if (teamIsFull.test(team)) { // team members are 2
             Project project = new Project(projectName, customer, team);
             company.getProjects().add(project);
-            customer.addProject(project);
             LOGGER.info("{} booked service for project - {}", customer.getName(), projectName);
         } else {
             throw new BookingException("Booking failed");

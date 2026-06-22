@@ -1,8 +1,13 @@
 package com.solvd.itcompany.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.solvd.itcompany.annotation.Important;
 import com.solvd.itcompany.company.employeeRoles.Developer;
+import com.solvd.itcompany.company.employeeRoles.Recruiter;
 import com.solvd.itcompany.company.employeeRoles.Tester;
+import com.solvd.itcompany.company.equipment.ElectronicDevice;
+import com.solvd.itcompany.company.equipment.MechanicalDevice;
 import com.solvd.itcompany.enums.CompanyType;
 import com.solvd.itcompany.enums.ProjectStatus;
 import com.solvd.itcompany.exceptions.BookingException;
@@ -14,6 +19,7 @@ import com.solvd.itcompany.superclasses.Equipment;
 import com.solvd.itcompany.superclasses.Partner;
 import com.solvd.itcompany.superclasses.company.Company;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import jakarta.xml.bind.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +27,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+@XmlRootElement(name = "company")
+@XmlAccessorType(XmlAccessType.FIELD)
+@JsonRootName("company")
 public class ITCompany extends Company {
 
     private static final Logger LOGGER = LogManager.getLogger(ITCompany.class);
@@ -32,22 +41,40 @@ public class ITCompany extends Company {
         LOGGER.info("Company Class Loaded");
     }
 
-    private BookingService bookingService = new BookingService();
+    @XmlElementWrapper(name = "employees")
+    @XmlElements({
+            @XmlElement(name = "developer", type = Developer.class),
+            @XmlElement(name = "recruiter", type = Recruiter.class),
+            @XmlElement(name = "tester", type = Tester.class),
+    })
+    private Set<Employee> employees;
+    @XmlElementWrapper(name = "projects")
+    @XmlElement(name = "project")
+    private List<Project> projects;
+    @XmlElementWrapper(name = "entertainments")
+    @XmlElement(name = "entertainment")
+    private List<Entertainment> entertainments;
+    @XmlElementWrapper(name = "addresses")
+    @XmlElement(name = "address")
+    private List<Address> addresses;
+    @XmlElementWrapper(name = "equipment")
+    @XmlElements({
+            @XmlElement(name = "electronicDevice", type = ElectronicDevice.class),
+            @XmlElement(name = "mechanicalDevice", type = MechanicalDevice.class),
+    })
+    private List<Equipment> equipment;
 
     @Important(value = "Director of this company")
     private Director director;
-    private List<Address> addresses;
-    private Set<Employee> employees;
-    private List<Entertainment> entertainments;
-    private List<Equipment> equipment;
     private Set<Partner> partners;
+    @JsonIgnore
     private Map<Problem, String> problems;
-    private List<Project> projects;
     private List<Tax> taxes;
     private Room<Developer> devRoom;
     private Room<Tester> testerRoom;
     private Order<Entertainment> orderEntertainment;
     private Order<Equipment> equipmentOrder;
+    private BookingService bookingService = new BookingService();
 
     public ITCompany(String name, int year, Director director, Runnable run) {
         run.run();
@@ -66,6 +93,9 @@ public class ITCompany extends Company {
         orderEntertainment = new Order<>("orders Entertainment");
         equipmentOrder = new Order<>("orders equipment");
         numberOfCompanies++;
+    }
+
+    public ITCompany() {
     }
 
     // static getters and setters

@@ -1,6 +1,11 @@
 package com.solvd.itcompany.superclasses.employee;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.solvd.itcompany.company.Project;
+import com.solvd.itcompany.company.employeeRoles.Developer;
+import com.solvd.itcompany.company.employeeRoles.Recruiter;
+import com.solvd.itcompany.company.employeeRoles.Tester;
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.enums.EmployeeStatus;
 import com.solvd.itcompany.enums.Rating;
@@ -8,11 +13,25 @@ import com.solvd.itcompany.exceptions.InvalidSalaryException;
 import com.solvd.itcompany.interfaces.Payable;
 import com.solvd.itcompany.interfaces.Workable;
 import com.solvd.itcompany.superclasses.Human;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "role",
+        visible = true
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Developer.class, name = "Developer"),
+        @JsonSubTypes.Type(value = Tester.class, name = "Tester"),
+        @JsonSubTypes.Type(value = Recruiter.class, name = "Recruiter")
+})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee extends Human implements Payable, Workable {
 
     private static final Logger LOGGER = LogManager.getLogger(Employee.class);
@@ -28,6 +47,10 @@ public class Employee extends Human implements Payable, Workable {
         status = EmployeeStatus.IS_NOT_WORKING;
         rating = Rating.NULL;
         this.department = department;
+    }
+
+    public Employee() {
+        super();
     }
 
     @Override

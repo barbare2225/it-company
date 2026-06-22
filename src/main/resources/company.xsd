@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+    <xs:element name="company">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="employees" type="employeesType"/>
+                <xs:element name="projects" type="projectsType"/>
+                <xs:element name="entertainments" type="entertainmentsType"/>
+                <xs:element name="addresses" type="addressesType"/>
+                <xs:element name="equipment" type="equipmentType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="projectType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="status" type="projectStatusType"/>
+            <xs:element name="customer" type="customerType"/>
+            <xs:element name="team" type="teamType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="projectsType">
+        <xs:sequence>
+            <xs:element name="project" type="projectType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="teamType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="employees" type="employeesType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="passportType">
+        <xs:sequence>
+            <xs:element name="expirationDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="statusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="IS_WORKING"/>
+            <xs:enumeration value="IS_NOT_WORKING"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="projectStatusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="IN_PROGRESS"/>
+            <xs:enumeration value="IN_QUEUE"/>
+            <xs:enumeration value="DONE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ratingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SUPER"/>
+            <xs:enumeration value="GOOD"/>
+            <xs:enumeration value="MEDIUM"/>
+            <xs:enumeration value="NOT_GOOD"/>
+            <xs:enumeration value="BAD"/>
+            <xs:enumeration value="NULL"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="departmentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HR"/>
+            <xs:enumeration value="IT"/>
+            <xs:enumeration value="FINANCE"/>
+            <xs:enumeration value="SECURITY"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="developerType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="role" type="xs:string"/>
+            <xs:element name="department" type="departmentType"/>
+            <xs:element name="successfulProjects" type="xs:int"/>
+            <xs:element name="rating" type="ratingType"/>
+            <xs:element name="status" type="statusType"/>
+            <xs:element name="passport" type="passportType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="recruiterType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="role" type="xs:string"/>
+            <xs:element name="department" type="departmentType"/>
+            <xs:element name="rating" type="ratingType"/>
+            <xs:element name="status" type="statusType"/>
+            <xs:element name="passport" type="passportType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="testerType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="role" type="xs:string"/>
+            <xs:element name="department" type="departmentType"/>
+            <xs:element name="rating" type="ratingType"/>
+            <xs:element name="status" type="statusType"/>
+            <xs:element name="passport" type="passportType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="employeesType">
+        <xs:sequence>
+            <xs:element name="developer" type="developerType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="recruiter" type="recruiterType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="tester" type="testerType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="customerType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="passport" type="passportType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addressesType">
+        <xs:sequence>
+            <xs:element name="address" type="addressType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="directorType">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="equipmentType">
+        <xs:sequence>
+            <xs:element name="electronicDevice" type="electronicDeviceType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="mechanicalDevice" type="mechanicalDeviceType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="electronicDeviceType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="numberOfPorts" type="xs:int"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mechanicalDeviceType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="working" type="xs:boolean"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entertainmentsType">
+        <xs:sequence>
+            <xs:element name="entertainment" type="entertainmentType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entertainmentType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="address" type="addressType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

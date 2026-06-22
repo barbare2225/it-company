@@ -20,7 +20,12 @@ import com.solvd.itcompany.threads.FirstThread;
 import com.solvd.itcompany.threads.connectionpool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import parser.JacksonParser;
+import parser.Jaxbparser;
+import parser.StaxParser;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -38,7 +43,7 @@ public class Main {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    static void main(String[] args) {
+    static void main(String[] args) throws IOException {
 
         // director (record class)
         Director director = new Director("Barbare", "Gelashvili");
@@ -140,7 +145,7 @@ public class Main {
         }
 
         // update project
-        ITCompany.updateProject(customer.getProject(), () -> "in progress");
+        ITCompany.updateProject(company.getProjects().getFirst(), () -> "in progress");
 
         // sum of taxes
         ITCompany.sumOfTaxes(company);
@@ -150,8 +155,8 @@ public class Main {
 
         // polymorphism with the interfaces examples
         // project
-        company.getBookingDetails(customer.getProject());
-        company.cancelBooking(customer.getProject());
+        company.getBookingDetails(company.getProjects().getFirst());
+        company.cancelBooking(company.getProjects().getFirst());
 
         // entertainment + first list element
         if (!company.getEntertainments().isEmpty()) {
@@ -396,6 +401,26 @@ public class Main {
         LOGGER.info("All tasks finished.");
 
         executorForFutures.shutdown();
+
+
+        LOGGER.info("=========== parsers ============");
+
+        File xmlFile = new File("src/main/resources/company.xml");
+        File jsonFile = new File("src/main/resources/company.json");
+
+        LOGGER.info("XML File: {}, parsing with Jaxb", xmlFile.getPath());
+        Jaxbparser parser = new Jaxbparser();
+        ITCompany company1 = parser.parse(xmlFile);
+
+        LOGGER.info("Json File: {}, parsing with Jackson", jsonFile.getPath());
+        JacksonParser parser1 = new JacksonParser();
+        ITCompany company2 = parser1.parse(jsonFile);
+
+        LOGGER.info("XML File: {}, parsing with Stax", jsonFile.getPath());
+        StaxParser parser2 = new StaxParser();
+        ITCompany staxc = parser2.parse(xmlFile);
+
+        System.out.println();
     }
 
 }

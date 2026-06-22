@@ -3,15 +3,18 @@ package com.solvd.itcompany.company;
 import com.solvd.itcompany.enums.ProjectStatus;
 import com.solvd.itcompany.interfaces.Solvable;
 import com.solvd.itcompany.interfaces.Trackable;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Project implements Solvable, Trackable {
 
     private static final Logger LOGGER = LogManager.getLogger(Project.class);
 
     private String name;
-    private ProjectStatus status;
+    private ProjectStatus projectStatus;
     private Team team;
     private Customer customer;
 
@@ -19,7 +22,10 @@ public class Project implements Solvable, Trackable {
         this.name = name;
         this.team = team;
         this.customer = customer;
-        status = ProjectStatus.IN_QUEUE;
+        projectStatus = ProjectStatus.IN_QUEUE;
+    }
+
+    public Project() {
     }
 
     @Override
@@ -46,11 +52,11 @@ public class Project implements Solvable, Trackable {
     }
 
     public ProjectStatus getStatus() {
-        return status;
+        return projectStatus;
     }
 
     public void setStatus(ProjectStatus status) {
-        this.status = status;
+        this.projectStatus = status;
     }
 
     public Team getTeam() {
