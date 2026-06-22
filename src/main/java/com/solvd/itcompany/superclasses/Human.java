@@ -3,9 +3,12 @@ package com.solvd.itcompany.superclasses;
 import com.solvd.itcompany.exceptions.EmptyNameException;
 import com.solvd.itcompany.exceptions.InvalidAgeException;
 import com.solvd.itcompany.passport.Passport;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Human {
 
     private String name;
@@ -23,6 +26,9 @@ public abstract class Human {
         this.age = age;
         this.name = name;
         passport = new Passport();
+    }
+
+    public Human() {
     }
 
     public abstract void resume();

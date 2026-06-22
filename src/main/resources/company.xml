@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="company.xsd">
+
+    <name>it-company</name>
+
+    <employees>
+        <developer>
+            <name>Barbare Gelashvili</name>
+            <age>20</age>
+            <role>Developer</role>
+            <department>IT</department>
+            <successfulProjects>0</successfulProjects>
+            <rating>BAD</rating>
+            <status>IS_NOT_WORKING</status>
+            <passport>
+                <expirationDate>2030-03-04</expirationDate>
+            </passport>
+        </developer>
+        <recruiter>
+            <name>Ilia Gelashvili</name>
+            <age>20</age>
+            <role>Recruiter</role>
+            <department>HR</department>
+            <rating>NULL</rating>
+            <status>IS_NOT_WORKING</status>
+            <passport>
+                <expirationDate>2030-03-04</expirationDate>
+            </passport>
+        </recruiter>
+        <tester>
+            <name>Natella Gelashvili</name>
+            <age>20</age>
+            <role>Tester</role>
+            <department>IT</department>
+            <rating>NULL</rating>
+            <status>IS_NOT_WORKING</status>
+            <passport>
+                <expirationDate>2030-03-04</expirationDate>
+            </passport>
+        </tester>
+    </employees>
+
+    <projects>
+        <project>
+            <name>online flower shop</name>
+            <status>IN_QUEUE</status>
+            <customer>
+                <name>Elza Gelashvili</name>
+                <age>20</age>
+                <passport>
+                    <expirationDate>2030-03-04</expirationDate>
+                </passport>
+            </customer>
+            <team>
+                <name>braves</name>
+                <employees>
+                    <developer>
+                        <name>Barbare Gelashvili</name>
+                        <age>20</age>
+                        <role>Developer</role>
+                        <department>IT</department>
+                        <successfulProjects>0</successfulProjects>
+                        <rating>BAD</rating>
+                        <status>IS_NOT_WORKING</status>
+                        <passport>
+                            <expirationDate>2030-03-04</expirationDate>
+                        </passport>
+                    </developer>
+                    <tester>
+                        <name>Natella Gelashvili</name>
+                        <age>20</age>
+                        <role>Tester</role>
+                        <department>IT</department>
+                        <rating>NULL</rating>
+                        <status>IS_NOT_WORKING</status>
+                        <passport>
+                            <expirationDate>2030-03-04</expirationDate>
+                        </passport>
+                    </tester>
+                </employees>
+            </team>
+        </project>
+    </projects>
+
+    <entertainments>
+        <entertainment>
+            <name>Corporate entertainment</name>
+            <address>
+                <street>xudadovis 3</street>
+                <city>Tbilisi</city>
+                <country>Georgia</country>
+            </address>
+        </entertainment>
+        <entertainment>
+            <name>Corporate entertainment</name>
+            <address>
+                <street>dadianis 3</street>
+                <city>Tbilisi</city>
+                <country>Georgia</country>
+            </address>
+        </entertainment>
+    </entertainments>
+
+    <addresses>
+        <address>
+            <street>dadianis 3</street>
+            <city>Tbilisi</city>
+            <country>Georgia</country>
+        </address>
+        <address>
+            <street>xudadovis 3</street>
+            <city>Tbilisi</city>
+            <country>Georgia</country>
+        </address>
+    </addresses>
+
+    <equipment>
+        <electronicDevice>
+            <name>phone</name>
+            <numberOfPorts>1</numberOfPorts>
+            <type>electronicDevice</type>
+        </electronicDevice>
+        <mechanicalDevice>
+            <name>clock</name>
+            <working>true</working>
+            <type>mechanicalDevice</type>
+        </mechanicalDevice>
+    </equipment>
+</company>

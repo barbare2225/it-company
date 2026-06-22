@@ -1,7 +1,25 @@
 package com.solvd.itcompany.superclasses;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.solvd.itcompany.company.equipment.ElectronicDevice;
+import com.solvd.itcompany.company.equipment.MechanicalDevice;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type",
+        visible = true
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = MechanicalDevice.class, name = "mechanicalDevice"),
+        @JsonSubTypes.Type(value = ElectronicDevice.class, name = "electronicDevice")
+})
 public class Equipment {
 
     private String name;
@@ -10,6 +28,9 @@ public class Equipment {
     public Equipment(String name, String type) {
         this.name = name;
         this.type = type;
+    }
+
+    public Equipment() {
     }
 
     @Override

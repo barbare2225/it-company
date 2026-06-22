@@ -1,0 +1,122 @@
+{
+  "name": "it-company",
+  "employees": [
+    {
+      "name": "Barbare Gelashvili",
+      "age": 20,
+      "role": "Developer",
+      "department": "IT",
+      "successfulProjects": 0,
+      "rating": "BAD",
+      "status": "IS_NOT_WORKING",
+      "passport": {
+        "expirationDate": "2030-03-04"
+      }
+    },
+    {
+      "name": "Ilia Gelashvili",
+      "age": 20,
+      "role": "Recruiter",
+      "department": "HR",
+      "rating": "NULL",
+      "status": "IS_NOT_WORKING",
+      "passport": {
+        "expirationDate": "2030-03-04"
+      }
+    },
+    {
+      "name": "Natella Gelashvili",
+      "age": 20,
+      "role": "Tester",
+      "department": "IT",
+      "rating": "NULL",
+      "status": "IS_NOT_WORKING",
+      "passport": {
+        "expirationDate": "2030-03-04"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "online flower shop",
+      "status": "IN_QUEUE",
+      "customer": {
+        "name": "Natella Gelashvili",
+        "age": 20,
+        "passport": {
+          "expirationDate": "2030-03-04"
+        }
+      },
+      "team": {
+        "name": "braves",
+        "employees": [
+          {
+            "name": "Barbare Gelashvili",
+            "age": 20,
+            "role": "Developer",
+            "department": "IT",
+            "successfulProjects": 0,
+            "rating": "BAD",
+            "status": "IS_NOT_WORKING",
+            "passport": {
+              "expirationDate": "2030-03-04"
+            }
+          },
+          {
+            "name": "Natella Gelashvili",
+            "age": 20,
+            "role": "Tester",
+            "department": "IT",
+            "rating": "NULL",
+            "status": "IS_NOT_WORKING",
+            "passport": {
+              "expirationDate": "2030-03-04"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "entertainments": [
+    {
+      "name": "Corporate entertainment",
+      "address": {
+        "street": "xudadovis 3",
+        "city": "Tbilisi",
+        "country": "Georgia"
+      }
+    },
+    {
+      "name": "Corporate entertainment",
+      "address": {
+        "street": "dadianis 3",
+        "city": "Tbilisi",
+        "country": "Georgia"
+      }
+    }
+  ],
+  "addresses": [
+    {
+      "street": "dadianis 3",
+      "city": "Tbilisi",
+      "country": "Georgia"
+    },
+    {
+      "street": "xudadovis 3",
+      "city": "Tbilisi",
+      "country": "Georgia"
+    }
+  ],
+  "equipment": [
+    {
+      "name": "phone",
+      "numberOfPorts": 1,
+      "type": "electronicDevice"
+    },
+    {
+      "name": "clock",
+      "working": true,
+      "type": "mechanicalDevice"
+    }
+  ]
+}

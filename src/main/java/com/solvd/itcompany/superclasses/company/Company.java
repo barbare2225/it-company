@@ -17,13 +17,16 @@ public class Company {
         rating = Rating.NULL;
     }
 
+    public Company() {
+    }
+
     public String getInfo() {
-        return "Name: " + this.getName() + ", Year: " + this.getyearOfBirth() + ", Type: " + this.getType();
+        return "Name: " + this.getName() + ", Year: " + this.getYearOfBirth() + ", Type: " + this.getType();
     }
 
     @Override
     public String toString() {
-        return "Name: " + this.getName() + ", Year of development: " + this.getyearOfBirth();
+        return "Name: " + this.getName() + ", Year of development: " + this.getYearOfBirth();
     }
 
     @Override
@@ -49,11 +52,11 @@ public class Company {
         this.name = name;
     }
 
-    public int getyearOfBirth() {
+    public int getYearOfBirth() {
         return yearOfBirth;
     }
 
-    public void setyearOfBirth(int year) {
+    public void setYearOfBirth(int year) {
         this.yearOfBirth = year;
     }
 
@@ -63,14 +66,6 @@ public class Company {
 
     public void setType(CompanyType type) {
         this.type = type;
-    }
-
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
     }
 
     public Rating getRating() {

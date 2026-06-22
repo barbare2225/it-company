@@ -2,17 +2,23 @@ package com.solvd.itcompany.company.employeeRoles;
 
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Recruiter extends Employee {
 
     private static final Logger LOGGER = LogManager.getLogger(Recruiter.class);
 
     public Recruiter(String name, int age) {
         super(name, age, "Recruiter", Department.HR);
+    }
+
+    public Recruiter() {
     }
 
     @Override

@@ -1,9 +1,12 @@
 package com.solvd.itcompany.company;
 
 import com.solvd.itcompany.interfaces.Trackable;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Entertainment implements Trackable {
 
     private static final Logger LOGGER = LogManager.getLogger(Entertainment.class);
@@ -14,6 +17,9 @@ public class Entertainment implements Trackable {
     public Entertainment(String name, Address address) {
         this.name = name;
         this.address = address;
+    }
+
+    public Entertainment() {
     }
 
     @Override
@@ -35,11 +41,11 @@ public class Entertainment implements Trackable {
         this.name = name;
     }
 
-    public Address getLocation() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setLocation(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

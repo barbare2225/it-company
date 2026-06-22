@@ -2,32 +2,38 @@ package com.solvd.itcompany.company.employeeRoles;
 
 import com.solvd.itcompany.enums.Department;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Developer extends Employee {
 
     private static final Logger LOGGER = LogManager.getLogger(Developer.class);
 
-    private final int succesfullProjects;
+    private int successfulProjects;
 
-    public Developer(String name, int age, int succesfullProjects) {
+    public Developer(String name, int age, int successfulProjects) {
         super(name, age, "Developer", Department.IT);
-        this.succesfullProjects = succesfullProjects;
+        this.successfulProjects = successfulProjects;
+    }
+
+    public Developer() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Developer developer)) return false;
-        return super.equals(o) && Objects.equals(succesfullProjects, developer.succesfullProjects);
+        return super.equals(o) && Objects.equals(successfulProjects, developer.successfulProjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), succesfullProjects);
+        return Objects.hash(super.hashCode(), successfulProjects);
     }
 
     @Override
@@ -36,6 +42,10 @@ public class Developer extends Employee {
     }
 
     public int getSuccessfulProjects() {
-        return succesfullProjects;
+        return successfulProjects;
+    }
+
+    public void setSuccessfulProjects(int successfulProjects) {
+        this.successfulProjects = successfulProjects;
     }
 }

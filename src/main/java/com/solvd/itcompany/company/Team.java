@@ -1,19 +1,32 @@
 package com.solvd.itcompany.company;
 
+import com.solvd.itcompany.company.employeeRoles.Developer;
+import com.solvd.itcompany.company.employeeRoles.Recruiter;
+import com.solvd.itcompany.company.employeeRoles.Tester;
 import com.solvd.itcompany.superclasses.employee.Employee;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Team {
 
     private String name;
+    @XmlElementWrapper(name = "employees")
+    @XmlElements({
+            @XmlElement(name = "developer", type = Developer.class),
+            @XmlElement(name = "recruiter", type = Recruiter.class),
+            @XmlElement(name = "tester", type = Tester.class),
+    })
     private Set<Employee> employees;
-    private Customer customer;
 
     public Team(String name) {
         this.name = name;
         employees = new HashSet<>();
+    }
+
+    public Team() {
     }
 
     // functions
@@ -39,11 +52,4 @@ public class Team {
         this.employees = employees;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 }
